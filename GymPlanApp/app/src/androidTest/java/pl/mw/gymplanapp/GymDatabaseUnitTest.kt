@@ -12,6 +12,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import pl.mw.gymplanapp.model.Exercise
+import pl.mw.gymplanapp.model.ExerciseCategory
 import pl.mw.gymplanapp.model.TrainingPlan
 import pl.mw.gymplanapp.room.ExcercisesDao
 import pl.mw.gymplanapp.room.GymDatabase
@@ -45,20 +46,22 @@ class GymDatabaseUnitTest {
     @Test
     @Throws(IOException::class)
     fun testInsertPlanToDataBase() = runBlocking {
+        // Tworzenie planow
         val testPlan = TrainingPlan(name_training = "Testowy Plan")
         val testPlanTwo = TrainingPlan(name_training = "Testowy Plan Dwa")
+
+        // Pobieranie ID planow
         val planIdjeden = trainingPlanDao.insertTrainingPlan(testPlan)
         val planIdDwa = trainingPlanDao.insertTrainingPlan(testPlanTwo)
         Log.d("planIdOne: ", planIdjeden.toString())
         Log.d("planIdTwo: ", planIdDwa.toString())
-        assert(planIdjeden == 1L)
-        assert(planIdDwa == 2L)
+
 
         val cwiczenie1doPlanuPierwszego = Exercise(
         name_exercise = "Wyciskanie sztangi na ławce płaskiej",
         amount_exercise = 3,
         weight_exercise = 60.0,
-        category_exercise = "Klatka",
+        category_exercise = ExerciseCategory.CHEST,
         trainingPlanId = planIdjeden
         )
         excercisesDao.insertExercises(cwiczenie1doPlanuPierwszego)
@@ -67,10 +70,14 @@ class GymDatabaseUnitTest {
             name_exercise = "Przysiady ze sztangą",
             amount_exercise = 3,
             weight_exercise = 80.0,
-            category_exercise = "Nogi",
+            category_exercise = ExerciseCategory.LEGS,
             trainingPlanId = planIdDwa
         )
         excercisesDao.insertExercises(cwiczenie2doPlanuDrugiego)
+
+        // Testowanie zwiekszenia id
+        assert(planIdjeden == 1L)
+        assert(planIdDwa == 2L)
 
     }
 }

@@ -1,25 +1,27 @@
 package pl.mw.gymplanapp.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import java.math.BigDecimal
-
 
 @Entity(tableName = "exercises_table",
     foreignKeys = [ForeignKey(
         entity = TrainingPlan::class,
-        parentColumns = ["id"],
+        parentColumns = ["planId"],
         childColumns = ["trainingPlanId"],
-        onDelete = ForeignKey.CASCADE // Jeżeli klucz w tabeli nadrzędnej zostanie usunięty to wszystkie powiązane rekordy z tabeli podrzędnej również
+        onDelete = ForeignKey.CASCADE, // Jeżeli klucz w tabeli nadrzędnej zostanie usunięty to wszystkie powiązane rekordy z tabeli podrzędnej również
+        onUpdate = ForeignKey.CASCADE
     )]
-    )
+)
+
 data class Exercise(
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0,
+    var exerciseId: Long = 0,
     val name_exercise: String,
     val amount_exercise: Int,
-    val weight_exercise: BigDecimal,
+    val weight_exercise: Double,
     val category_exercise: String,
-    val trainingPlanId: Int
+    @ColumnInfo("trainingPlanId")
+    var trainingPlanId: Long
 )

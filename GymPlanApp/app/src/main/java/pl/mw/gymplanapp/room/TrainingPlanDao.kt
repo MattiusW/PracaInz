@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
+import pl.mw.gymplanapp.model.Exercise
 import pl.mw.gymplanapp.model.TrainingPlan
 
 @Dao
@@ -13,17 +14,18 @@ interface TrainingPlanDao {
 
     // Dodanie planu treningowego do bazy danych
     @Insert
-    fun insertTrainingPlan(trainingPlan: TrainingPlan)
+    suspend fun insertTrainingPlan(trainingPlan: TrainingPlan): Long
 
     // Edycja planu treningowego w bazie danych
     @Update
-    fun updateTrainingPlan(trainingPlan: TrainingPlan)
+    suspend fun updateTrainingPlan(trainingPlan: TrainingPlan)
 
     // Usuniecie planu badz planow treningowych z bazy danych
     @Delete
-    fun deleteTrainingPlan(trainingPlans: List<TrainingPlan>)
+    suspend fun deleteTrainingPlans(trainingPlans: List<TrainingPlan>)
 
     // Pokazanie wszystkich planow
-    @Query("SELECT * FROM training_plans_table ORDER BY id DESC")
+    @Query("SELECT * FROM training_plans_table ORDER BY planId DESC")
     fun getAllTrainingPlans(): Flow<List<TrainingPlan>>
+
 }

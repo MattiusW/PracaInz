@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    implementation(libs.core.ktx)
+    implementation(libs.androidx.runner)
+    implementation(libs.androidx.junit.ktx)
     val room_version = "2.6.1"
 
     val nav_version = "2.7.7"
@@ -69,6 +72,13 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+
+    // JUnit Testy
+    androidTestImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.room:room-testing:2.4.2")
+    androidTestImplementation("org.mockito:mockito-core:4.3.1")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

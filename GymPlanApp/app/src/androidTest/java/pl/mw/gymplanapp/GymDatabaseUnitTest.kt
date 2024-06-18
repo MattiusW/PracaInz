@@ -42,34 +42,35 @@ class GymDatabaseUnitTest {
         db.close()
     }
 
-    // TODO naprawic testy, nie incrementuja ID oraz nie mozna dodac cwiczenia
     @Test
     @Throws(IOException::class)
     fun testInsertPlanToDataBase() = runBlocking {
         val testPlan = TrainingPlan(name_training = "Testowy Plan")
         val testPlanTwo = TrainingPlan(name_training = "Testowy Plan Dwa")
-        trainingPlanDao.insertTrainingPlan(testPlan)
-        trainingPlanDao.insertTrainingPlan(testPlanTwo)
-        assert(testPlan.planId == 0L)
-        assert(testPlanTwo.planId == 0L)
+        val planIdjeden = trainingPlanDao.insertTrainingPlan(testPlan)
+        val planIdDwa = trainingPlanDao.insertTrainingPlan(testPlanTwo)
+        Log.d("planIdOne: ", planIdjeden.toString())
+        Log.d("planIdTwo: ", planIdDwa.toString())
+        assert(planIdjeden == 1L)
+        assert(planIdDwa == 2L)
 
-//        val cwiczenie1 = Exercise(
-//        name_exercise = "Wyciskanie sztangi na ławce płaskiej",
-//        amount_exercise = 3,
-//        weight_exercise = 60.0,
-//        category_exercise = "Klatka",
-//        trainingPlanId = testPlan.planId
-//    )
-//
-//        val cwiczenie2 = Exercise(
-//            name_exercise = "Przysiady ze sztangą",
-//            amount_exercise = 3,
-//            weight_exercise = 80.0,
-//            category_exercise = "Nogi",
-//            trainingPlanId = testPlan.planId
-//        )
-//
-//        excercisesDao.insertExercises(cwiczenie1)
-//        excercisesDao.insertExercises(cwiczenie2)
+        val cwiczenie1doPlanuPierwszego = Exercise(
+        name_exercise = "Wyciskanie sztangi na ławce płaskiej",
+        amount_exercise = 3,
+        weight_exercise = 60.0,
+        category_exercise = "Klatka",
+        trainingPlanId = planIdjeden
+        )
+        excercisesDao.insertExercises(cwiczenie1doPlanuPierwszego)
+
+        val cwiczenie2doPlanuDrugiego = Exercise(
+            name_exercise = "Przysiady ze sztangą",
+            amount_exercise = 3,
+            weight_exercise = 80.0,
+            category_exercise = "Nogi",
+            trainingPlanId = planIdDwa
+        )
+        excercisesDao.insertExercises(cwiczenie2doPlanuDrugiego)
+
     }
 }

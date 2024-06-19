@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.androidx.runner)
     implementation(libs.androidx.junit.ktx)
+    implementation(libs.androidx.legacy.support.v4)
     val room_version = "2.6.1"
 
     val nav_version = "2.7.7"

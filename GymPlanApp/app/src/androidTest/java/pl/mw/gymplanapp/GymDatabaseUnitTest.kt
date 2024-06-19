@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.filters.LargeTest
+import org.junit.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -58,11 +58,11 @@ class GymDatabaseUnitTest {
 
 
         val cwiczenie1doPlanuPierwszego = Exercise(
-        name_exercise = "Wyciskanie sztangi na ławce płaskiej",
-        amount_exercise = 3,
-        weight_exercise = 60.0,
-        category_exercise = ExerciseCategory.CHEST,
-        trainingPlanId = planIdjeden
+            name_exercise = "Wyciskanie sztangi na ławce płaskiej",
+            amount_exercise = 3,
+            weight_exercise = 60.0,
+            category_exercise = ExerciseCategory.CHEST,
+            trainingPlanId = planIdjeden
         )
         excercisesDao.insertExercises(cwiczenie1doPlanuPierwszego)
 

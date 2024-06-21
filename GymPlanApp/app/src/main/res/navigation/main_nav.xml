@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/trainingPlansFragment">
+
+    <fragment
+        android:id="@+id/addExerciseFragment"
+        android:name="pl.mw.gymplanapp.ui.exercise_fragment.add_exercise_fragment.AddExerciseFragment"
+        android:label="fragment_add_exercise"
+        tools:layout="@layout/fragment_add_exercise" />
+    <fragment
+        android:id="@+id/addTrainingPlanFragment"
+        android:name="pl.mw.gymplanapp.ui.training_plan_fragment.add_training_plan_fragment.AddTrainingPlanFragment"
+        android:label="fragment_add_training_plan"
+        tools:layout="@layout/fragment_add_training_plan" />
+    <fragment
+        android:id="@+id/editExerciseFragment"
+        android:name="pl.mw.gymplanapp.ui.exercise_fragment.edit_exercise_fragment.EditExerciseFragment"
+        android:label="fragment_edit_exercise"
+        tools:layout="@layout/fragment_edit_exercise" />
+    <fragment
+        android:id="@+id/editTrainingPlanFragment"
+        android:name="pl.mw.gymplanapp.ui.training_plan_fragment.edit_training_plan_fragment.EditTrainingPlanFragment"
+        android:label="fragment_edit_training_plan"
+        tools:layout="@layout/fragment_edit_training_plan" />
+    <fragment
+        android:id="@+id/exercisesFragment"
+        android:name="pl.mw.gymplanapp.ui.exercise_fragment.ExercisesFragment"
+        android:label="fragment_exercises"
+        tools:layout="@layout/fragment_exercises" />
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="pl.mw.gymplanapp.ui.exercise_fragment.progress_fragment.ProgressFragment"
+        android:label="fragment_progress"
+        tools:layout="@layout/fragment_progress" />
+    <fragment
+        android:id="@+id/trainingPlansFragment"
+        android:name="pl.mw.gymplanapp.ui.training_plan_fragment.TrainingPlansFragment"
+        android:label="fragment_training_plans"
+        tools:layout="@layout/fragment_training_plans" />
+</navigation>

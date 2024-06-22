@@ -13,9 +13,8 @@
         android:layout_margin="10dp">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:id="@+id/exerciseIcon"
+            android:src="@mipmap/ic_launcher"
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:layout_constraintEnd_toStartOf="@+id/categoryExercise" />
@@ -23,19 +22,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nameExercise"
-                android:layout_margin="10dp"
+                android:textSize="20dp"
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="nazwa cwiczenia" />
+                android:hint="nazwa ćwiczenia" />
 
             <TextView
-                android:layout_margin="10dp"
                 android:id="@+id/categoryExercise"
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="kategoria" />
@@ -47,27 +47,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="10dp">
+        android:layout_marginLeft="5dp"
+        >
 
         <androidx.appcompat.widget.AppCompatButton
-            android:text="p"
-            android:layout_marginLeft="20dp"
+            android:id="@+id/amountButtonMinus"
+            android:text="m"
+            android:layout_margin="5dp"
             android:layout_width="60dp"
             android:layout_height="60dp" />
 
         <TextView
             android:id="@+id/amountExercise"
+            android:textSize="20dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="liczba" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:text="m"
+            android:id="@+id/amountButtonPlus"
+            android:layout_margin="5dp"
             android:layout_width="60dp"
-            android:layout_height="60dp" />
+            android:layout_height="60dp"
+            android:text="p" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_marginLeft="30dp"
+            android:id="@+id/weightButtonMinus"
+            android:layout_margin="5dp"
             android:text="m"
             android:layout_width="60dp"
             android:layout_height="60dp" />
@@ -76,10 +83,14 @@
             android:id="@+id/weightExercise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Waga" />
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:hint="waga" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/weightButtonPlus"
             android:text="p"
+            android:layout_margin="5dp"
             android:layout_width="60dp"
             android:layout_height="60dp" />
     </LinearLayout>

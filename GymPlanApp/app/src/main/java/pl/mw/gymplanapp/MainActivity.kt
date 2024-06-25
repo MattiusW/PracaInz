@@ -2,6 +2,7 @@ package pl.mw.gymplanapp
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -9,9 +10,11 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import pl.mw.gymplanapp.databinding.ActivityMainBinding
+import pl.mw.gymplanapp.model.TrainingPlan
 
 class MainActivity : AppCompatActivity() {
 
+    private val mainVm by viewModels<MainViewModel>()
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
@@ -20,9 +23,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
-    }
 
+        // Testowanie planow
+        mainVm.insertTrainingPlan(TrainingPlan(0L, "Przykladowy Plan FBW", 1L))
+    }
 }

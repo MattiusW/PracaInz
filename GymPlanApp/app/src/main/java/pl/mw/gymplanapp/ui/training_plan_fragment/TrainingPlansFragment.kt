@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
 import pl.mw.gymplanapp.databinding.FragmentExercisesBinding
@@ -48,8 +50,12 @@ class TrainingPlansFragment : Fragment() {
             binding.planRecylerView.adapter = TrainingPlanAdapter(
                 plans
             ) { plans, position ->
-                Log.d("TEST PLAN", "PLANS: ${plans.toString()}")
+                mainVm.selectTrainingPlan(plans)
+                (requireActivity() as MainActivity).setButtonVisibility(false)
+                //Zamienic przyciski widokow
+                findNavController().navigate(R.id.editTrainingPlanFragment)
             }
+
         }
     }
 }

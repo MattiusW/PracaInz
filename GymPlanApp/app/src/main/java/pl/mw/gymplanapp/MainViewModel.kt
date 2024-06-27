@@ -15,7 +15,7 @@ import pl.mw.gymplanapp.repository.TraningPlanRepository
 // View model niezbedny do przechowywania danych przed ich zniszczeniem
 class MainViewModel(app: Application) : AndroidViewModel(app) {
     var isButtonVisible = true
-
+    private var selectedTrainingPlan: TrainingPlan? = null
     private val trainingPlanRepo = TraningPlanRepository(app.applicationContext)
     private val excercisesRepo = ExcercisesRepository(app.applicationContext)
 
@@ -37,6 +37,17 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     // Zamiana flow w live data oraz dodanie zamkniecia przeplywu danych kiedy uzytkownik wyjdzie z aplikacji
     fun getAllTrainingPlans() = trainingPlanRepo.getAllTrainingPlans().asLiveData(viewModelScope.coroutineContext)
+
+
+    fun selectTrainingPlan(trainingPlan: TrainingPlan) {
+        selectedTrainingPlan = trainingPlan
+    }
+
+    fun unselectTrainingPlan() {
+        selectedTrainingPlan = null
+    }
+
+    fun getSelectedTrainingPlan() = selectedTrainingPlan
 
     // TODO stworzyc metody dla excercise repo
 

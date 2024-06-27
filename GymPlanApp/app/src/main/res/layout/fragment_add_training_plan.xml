@@ -56,6 +56,7 @@
             android:textStyle="bold"/>
 
         <ImageView
+            android:id="@+id/calendarImage"
             android:src="@mipmap/ic_launcher"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -71,6 +72,7 @@
         android:layout_marginRight="20dp">
 
         <TextView
+            android:id="@+id/dayTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Dzień"
@@ -78,6 +80,7 @@
             android:textSize="20sp"/>
 
         <TextView
+            android:id="@+id/monthTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Miesiąc"
@@ -85,6 +88,7 @@
             android:textSize="20sp"/>
 
         <TextView
+            android:id="@+id/yearTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Rok"
@@ -94,7 +98,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/save_plan"
+        android:id="@+id/savePlanBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

@@ -36,9 +36,16 @@ class TrainingPlansFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.listaTreningowRV.layoutManager = LinearLayoutManager(requireContext())
+        // Logowanie dla debugowania
+        Log.d("TrainingPlansFragment", "onViewCreated wywolana")
+
+        binding.planRecylerView.layoutManager = LinearLayoutManager(requireContext())
+
         mainVm.getAllTrainingPlans().observe(viewLifecycleOwner) {plans ->
-            binding.listaTreningowRV.adapter = TrainingPlanAdapter(
+
+            Log.d("Wielkosc Planu", "Plans size: ${plans.size}")
+
+            binding.planRecylerView.adapter = TrainingPlanAdapter(
                 plans
             ) { plans, position ->
                 Log.d("TEST PLAN", "PLANS: ${plans.toString()}")

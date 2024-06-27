@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
+import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
 import pl.mw.gymplanapp.databinding.FragmentAddTrainingPlanBinding
@@ -21,7 +23,14 @@ class AddTrainingPlanFragment : Fragment() {
     private var _binding: FragmentAddTrainingPlanBinding? = null
     private val binding get() = _binding!!
 
-
+    // Logika odpowiadajaca za ponowne pojawienie sie przycisku
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            (requireActivity() as MainActivity).setButtonVisibility(true)
+            isEnabled = false
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,6 +41,7 @@ class AddTrainingPlanFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        handleOnBackPressed()
 
         binding.calendarImage.setOnClickListener {
             showDatePickerDialog()
@@ -40,9 +50,14 @@ class AddTrainingPlanFragment : Fragment() {
         binding.savePlanBtn.setOnClickListener {
             val training_plan = createTrainingPlan()
             mainVm.insertTrainingPlan(training_plan)
+            // Kiedy plan wysle sie do bazy danych cofniemy sie poprzedniego widoku
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+    }
 
+    // Podpinamy nasluch
+    private fun handleOnBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
     }
 
     private fun showDatePickerDialog() {

@@ -14,6 +14,8 @@ import pl.mw.gymplanapp.repository.TraningPlanRepository
 
 // View model niezbedny do przechowywania danych przed ich zniszczeniem
 class MainViewModel(app: Application) : AndroidViewModel(app) {
+    var isButtonVisible = true
+
     private val trainingPlanRepo = TraningPlanRepository(app.applicationContext)
     private val excercisesRepo = ExcercisesRepository(app.applicationContext)
 

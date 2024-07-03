@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,10 +16,12 @@ import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
 import pl.mw.gymplanapp.databinding.FragmentExercisesBinding
 import pl.mw.gymplanapp.databinding.FragmentTrainingPlansBinding
+import pl.mw.gymplanapp.model.TrainingPlan
+import pl.mw.gymplanapp.room.OnEditPlanClickListener
 import pl.mw.gymplanapp.ui.adapters.TrainingPlanAdapter
 import pl.mw.gymplanapp.ui.exercise_fragment.ExercisesViewModel
 
-class TrainingPlansFragment : Fragment() {
+class TrainingPlansFragment : Fragment(), OnEditPlanClickListener {
 
     private val trainingViewModel by viewModels<TrainingPlansViewModel>()
     private val mainVm by activityViewModels<MainViewModel>()
@@ -34,28 +37,24 @@ class TrainingPlansFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Logowanie dla debugowania
-        Log.d("TrainingPlansFragment", "onViewCreated wywolana")
 
         binding.planRecylerView.layoutManager = LinearLayoutManager(requireContext())
 
         mainVm.getAllTrainingPlans().observe(viewLifecycleOwner) {plans ->
-
-            Log.d("Wielkosc Planu", "Plans size: ${plans.size}")
-
-            binding.planRecylerView.adapter = TrainingPlanAdapter(
-                plans
-            ) { plans, position ->
+            binding.planRecylerView.adapter = TrainingPlanAdapter(plans, this)
+            { plans, position ->
                 mainVm.selectTrainingPlan(plans)
                 (requireActivity() as MainActivity).setButtonVisibility(false)
-                //Zamienic przyciski widokow
-                findNavController().navigate(R.id.editTrainingPlanFragment)
+                findNavController().navigate(R.id.exercisesFragment)
             }
-
         }
+    }
+
+    override fun onEditPlanClick(plan: TrainingPlan) {
+        mainVm.selectTrainingPlan(plan)
+        (requireActivity() as MainActivity).setButtonVisibility(false)
+        findNavController().navigate(R.id.editTrainingPlanFragment)
     }
 }

@@ -47,5 +47,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.addNewPlan.visibility = isVisibile
+        binding.bottomNavigationView.visibility = isVisibile
     }
 }

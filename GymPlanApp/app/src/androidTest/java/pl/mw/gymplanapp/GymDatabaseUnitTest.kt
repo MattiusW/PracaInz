@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import org.junit.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -47,8 +46,8 @@ class GymDatabaseUnitTest {
     @Throws(IOException::class)
     fun testInsertPlanToDataBase() = runBlocking {
         // Tworzenie planow
-        val testPlan = TrainingPlan(name_training = "Testowy Plan")
-        val testPlanTwo = TrainingPlan(name_training = "Testowy Plan Dwa")
+        val testPlan = TrainingPlan(name_training = "Testowy Plan", date = 1L)
+        val testPlanTwo = TrainingPlan(name_training = "Testowy Plan Dwa", date = 1L)
 
         // Pobieranie ID planow
         val planIdjeden = trainingPlanDao.insertTrainingPlan(testPlan)

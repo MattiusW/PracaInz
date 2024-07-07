@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:textSize="30dp"
         android:textStyle="bold"
         android:gravity="center"
@@ -25,6 +25,7 @@
         <!-- CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS -->
 
         <GridLayout
+            android:id="@+id/categoryExerciseRB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:columnCount="4"
@@ -32,39 +33,46 @@
             android:layout_gravity="center">
 
             <RadioButton
-                android:text="CHEST"
+                android:id="@+id/chestRB"
+                android:text="KLATKA"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <RadioButton
-                android:text="ARMS"
+                android:id="@+id/armsRB"
+                android:text="RĘCE"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <RadioButton
-                android:text="ABS"
+                android:id="@+id/absRB"
+                android:text="BRZUCH"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <RadioButton
-                android:text="LEGS"
+                android:id="@+id/legsRB"
+                android:text="NOGI"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnSpan="1"/>
             <RadioButton
-                android:text="BACK"
+                android:id="@+id/backRB"
+                android:text="PLECY"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <RadioButton
-                android:text="SHOULDERS"
+                android:id="@+id/shouldersRB"
+                android:text="BARKI"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnSpan="1"/>
             <RadioButton
-                android:text="OTHERS"
+                android:id="@+id/othersRB"
+                android:text="POZOSTAŁE"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,5 +80,63 @@
 
         </GridLayout>
     </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/name_exercise"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/enter_exercise_name"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_exercise_name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_series_label"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/enter_amount_series"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_series"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_weight"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/enter_weight"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_series"/>
+
+
+    <Button
+        android:id="@+id/saveExerciseBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="@string/button_save"
+        android:layout_marginTop="30dp"/>
 
 </LinearLayout>

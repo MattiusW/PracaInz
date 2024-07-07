@@ -33,6 +33,17 @@ class ExercisesAdapter(private val exercises: List<Exercise>, private val onClic
     }
 
     override fun onBindViewHolder(holder: ExercisesViewHolder, position: Int) {
-        TODO("Dokończyć implemenetacje ADAPTERA")
+        bindData(holder, position)
+    }
+
+    private fun bindData(holder: ExercisesViewHolder, position: Int) {
+
+        //TODO("STWORZYC IKONKI, KTORE BEDA SIE ZMIENIALY W ZALEZNOSCI OD KATEGORI CWICZEN")
+
+        holder.nameExercise.text = exercises[position].name_exercise.toString()
+        holder.categoryExercise.text = exercises[position].category_exercise.name
+        holder.amountExercise.text = exercises[position].amount_exercise.toString()
+        holder.weightExercise.text = exercises[position].weight_exercise.toString()
+
     }
 }

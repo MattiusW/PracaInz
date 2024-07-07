@@ -33,10 +33,9 @@ class ExcercisesRepository(context: Context) {
     // Wyswietlenie listy wszystkich cwiczen
     fun getAllExercises() = excercisesDao.getAllExercises()
 
-
-    // TODO sprawdzic czy dziala i czy wszystko sie dobrze ze soba laczy
-    fun getExercisesByTrainingPlan(trainingPlanId: Long) {
-        excercisesDao.getExercisesByTrainingPlan(trainingPlanId)
+    // Wyswietlanie cwiczen wedlug planu
+    fun getExercisesByTrainingPlan(trainingPlanId: Long): Flow<List<Exercise>> {
+        return excercisesDao.getExercisesByTrainingPlan(trainingPlanId)
     }
 
 }

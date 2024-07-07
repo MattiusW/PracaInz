@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">GymPlanApp</string>
+    <string name="add_plan">Dodaj plan treningowy</string>
+    <string name="add_exercise">Dodaj ćwiczenie</string>
+    <string name="info_get_plan_name">Podaj nazwe planu treningowego</string>
+    <string name="info_get_date_plan">Wybierz date rozpoczecia planu</string>
+    <string name="button_save">Zapisz\n</string>
+    <string name="edit_plan">Edytuj plan treningowy</string>
+    <string name="button_delete">Usuń plan</string>
+    <string name="add_exercise_name">Wprowadź nazwę ćwiczenia</string>
+    <string name="add_series">Wprowadź liczbę powtórzeń</string>
+    <string name="add_series_label">Liczba powtórzeń</string>
+    <string name="add_weight">Waga ciężaru</string>
+    <string name="name_exercise">Nazwa ćwiczenia</string>
 </resources>

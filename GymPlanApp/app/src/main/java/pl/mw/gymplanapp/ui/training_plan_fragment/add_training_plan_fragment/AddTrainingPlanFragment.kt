@@ -67,7 +67,7 @@ class AddTrainingPlanFragment : Fragment() {
             binding.yearTv.text = year.toString()
 
             val date = Calendar.getInstance()
-            date.set(day, month, year)
+            date.set(year, month, day)
             viewModel.date = date.timeInMillis
         }
 
@@ -75,7 +75,7 @@ class AddTrainingPlanFragment : Fragment() {
     }
 
     private fun createTrainingPlan(): TrainingPlan {
-        val namePlan = binding.enterPlanName.toString()
+        val namePlan = binding.enterPlanName.text.toString()
 
         return TrainingPlan(0, namePlan, viewModel.date)
     }

@@ -20,7 +20,7 @@ class TrainingPlanDatePicker(private val onDateSetListener: (Int, Int, Int) -> U
         return  DatePickerDialog(requireContext(), this, year, month, day)
     }
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        onDateSetListener(dayOfMonth, month+1, year)
+        onDateSetListener(dayOfMonth, month, year)
     }
 
 }

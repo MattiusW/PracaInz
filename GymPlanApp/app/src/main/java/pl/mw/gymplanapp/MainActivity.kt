@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setButtonVisibility(mainVm.isButtonVisible)
+        setButtonVisibility(mainVm.isButtonVisible, mainVm.isMenuVisible)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
@@ -30,22 +30,27 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
 
         binding.addNewPlan.setOnClickListener {
-            setButtonVisibility(false)
+            setButtonVisibility(buttonVisible = false, menuVisible = false)
             navController.navigate(R.id.addTrainingPlanFragment)
         }
 
     }
 
-    fun setButtonVisibility(bool: Boolean) {
-        mainVm.isButtonVisible = bool
+    fun setButtonVisibility(buttonVisible: Boolean, menuVisible: Boolean) {
+        mainVm.isButtonVisible = buttonVisible
+        mainVm.isMenuVisible = menuVisible
 
-        val isVisibile = when(bool) {
+        val isVisibleBtn = when(buttonVisible) {
+            true -> View.VISIBLE
+            false -> View.INVISIBLE
+        }
+        val isVisibleMenu = when(menuVisible) {
             true -> View.VISIBLE
             false -> View.INVISIBLE
         }
 
-        binding.addNewPlan.visibility = isVisibile
-        binding.bottomNavigationView.visibility = isVisibile
+        binding.addNewPlan.visibility = isVisibleBtn
+        binding.bottomNavigationView.visibility = isVisibleMenu
     }
 
 }

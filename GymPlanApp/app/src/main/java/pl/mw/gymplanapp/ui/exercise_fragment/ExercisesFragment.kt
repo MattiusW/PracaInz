@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
 import pl.mw.gymplanapp.databinding.FragmentExercisesBinding
@@ -21,6 +23,14 @@ class ExercisesFragment : Fragment() {
     private var _binding: FragmentExercisesBinding? = null
     private val binding get() = _binding!!
 
+    // Logika odpowiadajaca za ponowne pojawienie sie przycisku
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            (requireActivity() as MainActivity).setButtonVisibility(buttonVisible = true, menuVisible = true)
+            isEnabled = false
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +43,8 @@ class ExercisesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        handleOnBackPressed()
+
         binding.exerciseRecylerView.layoutManager = LinearLayoutManager(requireContext())
 
         mainVm.getSelectedTrainingPlan()?.let { trainingPlan ->
@@ -41,9 +53,14 @@ class ExercisesFragment : Fragment() {
                 binding.exerciseRecylerView.adapter = ExercisesAdapter(exercises) {
                     exercises, position ->
                     Log.d("TEST CWICZEN", "CWICZENIA ${exercises.toString()}")
+
             }
             }
         }
 
+    }
+
+    private fun handleOnBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
     }
 }

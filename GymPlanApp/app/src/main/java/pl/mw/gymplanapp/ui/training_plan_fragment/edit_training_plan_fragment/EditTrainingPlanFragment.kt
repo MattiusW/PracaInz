@@ -26,7 +26,7 @@ class EditTrainingPlanFragment : Fragment() {
 
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
-            (requireActivity() as MainActivity).setButtonVisibility(true)
+            (requireActivity() as MainActivity).setButtonVisibility(buttonVisible = true, menuVisible = true)
             isEnabled = false
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }

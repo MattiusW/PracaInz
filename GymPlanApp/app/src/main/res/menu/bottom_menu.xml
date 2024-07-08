@@ -2,11 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="Traningi"
+        android:title="Treningi"
         android:id="@id/trainingPlansFragment"/>
-    <item
-        android:title="Ćwiczenia"
-        android:id="@id/exercisesFragment"/>
     <item
         android:title="Progress"
         android:id="@id/progressFragment"/>

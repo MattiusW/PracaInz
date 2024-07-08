@@ -18,6 +18,7 @@ import pl.mw.gymplanapp.repository.TraningPlanRepository
 // View model niezbedny do przechowywania danych przed ich zniszczeniem
 class MainViewModel(app: Application) : AndroidViewModel(app) {
     var isButtonVisible = true
+    var isMenuVisible = true
     private var selectedTrainingPlan: TrainingPlan? = null
     private val trainingPlanRepo = TraningPlanRepository(app.applicationContext)
     private val excercisesRepo = ExcercisesRepository(app.applicationContext)
@@ -52,7 +53,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     fun getSelectedTrainingPlan() = selectedTrainingPlan
 
-    // TODO stworzyc metody dla excercise repo
+    // pobranie id planu
+    fun getSelectedTrainingPlanId(): Long {
+        return selectedTrainingPlan!!.planId
+    }
 
     fun insertExercise(exercise: Exercise) =
         CoroutineScope(Dispatchers.IO).launch {
@@ -72,6 +76,5 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     // Zwracanie wszystkich cwiczen wedlug planu
     fun getAllExercisesByPlan(trainingPlanId: Long) =
         excercisesRepo.getExercisesByTrainingPlan(trainingPlanId).asLiveData(viewModelScope.coroutineContext)
-
 
 }

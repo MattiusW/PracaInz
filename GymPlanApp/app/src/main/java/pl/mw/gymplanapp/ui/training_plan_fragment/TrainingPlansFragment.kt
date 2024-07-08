@@ -45,8 +45,9 @@ class TrainingPlansFragment : Fragment(), OnEditPlanClickListener {
         mainVm.getAllTrainingPlans().observe(viewLifecycleOwner) {plans ->
             binding.planRecylerView.adapter = TrainingPlanAdapter(plans, this)
             { plans, position ->
+                Log.d("TEST PLAN", "PLAN: ${plans.toString()}")
                 mainVm.selectTrainingPlan(plans)
-                (requireActivity() as MainActivity).setButtonVisibility(false)
+                (requireActivity() as MainActivity).setButtonVisibility(buttonVisible = false, menuVisible = false)
                 findNavController().navigate(R.id.exercisesFragment)
             }
         }
@@ -54,7 +55,7 @@ class TrainingPlansFragment : Fragment(), OnEditPlanClickListener {
 
     override fun onEditPlanClick(plan: TrainingPlan) {
         mainVm.selectTrainingPlan(plan)
-        (requireActivity() as MainActivity).setButtonVisibility(false)
+        (requireActivity() as MainActivity).setButtonVisibility(buttonVisible = false, menuVisible = false)
         findNavController().navigate(R.id.editTrainingPlanFragment)
     }
 }

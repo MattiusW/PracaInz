@@ -16,6 +16,7 @@
         android:text="@string/add_exercise" />
 
     <RadioGroup
+        android:id="@+id/categoryExerciseRB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -25,7 +26,6 @@
         <!-- CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS -->
 
         <GridLayout
-            android:id="@+id/categoryExerciseRB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:columnCount="4"
@@ -107,6 +107,7 @@
 
     <EditText
         android:id="@+id/enter_amount_series"
+        android:inputType="number"
         android:textSize="20dp"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
@@ -123,6 +124,7 @@
 
     <EditText
         android:id="@+id/enter_weight"
+        android:inputType="numberDecimal"
         android:textSize="20dp"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"

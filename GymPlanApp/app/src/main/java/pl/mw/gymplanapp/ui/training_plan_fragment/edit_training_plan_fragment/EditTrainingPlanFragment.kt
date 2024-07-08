@@ -73,7 +73,7 @@ class EditTrainingPlanFragment : Fragment() {
     }
 
     private fun createTrainingPlan(): TrainingPlan {
-        val namePlan = binding.enterPlanName.toString()
+        val namePlan = binding.enterPlanName.text.toString()
 
         return TrainingPlan(mainVm.getSelectedTrainingPlan()!!.planId, namePlan, viewModel.date)
     }

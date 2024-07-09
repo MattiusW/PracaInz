@@ -1,5 +1,5 @@
 package pl.mw.gymplanapp.model
 
 enum class ExerciseCategory {
-    CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS
+    KLATKA, RAMIONA, RECE, NOGI, PLECY, BRZUCH, INNE
 }

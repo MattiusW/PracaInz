@@ -97,13 +97,17 @@
 
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/savePlanBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/success"
         android:gravity="center"
         android:textSize="20sp"
         android:text="@string/button_save"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="50dp"/>
+
 </LinearLayout>
 

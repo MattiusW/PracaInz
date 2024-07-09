@@ -15,71 +15,20 @@
         android:gravity="center"
         android:text="@string/add_exercise" />
 
-    <RadioGroup
-        android:id="@+id/categoryExerciseRB"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:text="@string/category_exercise"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-        <!-- CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS -->
-
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="4"
-            android:rowCount="2"
-            android:layout_gravity="center">
-
-            <RadioButton
-                android:id="@+id/chestRB"
-                android:text="KLATKA"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <RadioButton
-                android:id="@+id/armsRB"
-                android:text="RĘCE"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <RadioButton
-                android:id="@+id/absRB"
-                android:text="BRZUCH"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <RadioButton
-                android:id="@+id/legsRB"
-                android:text="NOGI"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnSpan="1"/>
-            <RadioButton
-                android:id="@+id/backRB"
-                android:text="PLECY"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <RadioButton
-                android:id="@+id/shouldersRB"
-                android:text="BARKI"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnSpan="1"/>
-            <RadioButton
-                android:id="@+id/othersRB"
-                android:text="POZOSTAŁE"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnSpan="1"/>
-
-        </GridLayout>
-    </RadioGroup>
+    <Spinner
+        android:id="@+id/categoryExerciseSpinner"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:entries="@array/category_exercise"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -127,18 +76,19 @@
         android:inputType="numberDecimal"
         android:textSize="20dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/add_series"/>
 
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveExerciseBtn"
+        android:background="@color/success"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20sp"
         android:text="@string/button_save"
-        android:layout_marginTop="30dp"/>
+        android:layout_margin="5dp"
+        android:textSize="20sp" />
 
 </LinearLayout>

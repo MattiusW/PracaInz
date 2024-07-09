@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
@@ -52,10 +53,14 @@ class ExercisesFragment : Fragment() {
                 exercises ->
                 binding.exerciseRecylerView.adapter = ExercisesAdapter(exercises) {
                     exercises, position ->
-                    Log.d("TEST CWICZEN", "CWICZENIA ${exercises.toString()}")
+                    mainVm.selectExercise(exercises)
+                    findNavController().navigate(R.id.editExerciseFragment)
+                }
+            }
+        }
 
-            }
-            }
+        binding.addExercise.setOnClickListener {
+            findNavController().navigate(R.id.addExerciseFragment)
         }
 
     }

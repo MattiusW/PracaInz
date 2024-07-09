@@ -33,21 +33,23 @@ class AddExerciseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.saveExerciseBtn.setOnClickListener {
-            createExercise()
+            val exercise_add = createExercise()
+            mainVm.insertExercise(exercise_add)
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
-    }
 
+    }
 
     private fun createExercise(): Exercise {
         //  Stworzenie logiki wybierania kategorii (CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS)
-        val type = when(binding.categoryExerciseRB.checkedRadioButtonId){
-            binding.chestRB.id -> ExerciseCategory.CHEST
-            binding.shouldersRB.id -> ExerciseCategory.SHOULDERS
-            binding.armsRB.id -> ExerciseCategory.ARMS
-            binding.legsRB.id -> ExerciseCategory.LEGS
-            binding.backRB.id -> ExerciseCategory.BACK
-            binding.absRB.id -> ExerciseCategory.ABS
-            else -> ExerciseCategory.OTHERS
+        val type = when(binding.categoryExerciseSpinner.selectedItem.toString()){
+            "KLATKA" -> ExerciseCategory.KLATKA
+            "RAMIONA" -> ExerciseCategory.RAMIONA
+            "RECE" -> ExerciseCategory.RECE
+            "NOGI" -> ExerciseCategory.NOGI
+            "PLECY" -> ExerciseCategory.PLECY
+            "BRZUCH" -> ExerciseCategory.BRZUCH
+            else -> ExerciseCategory.INNE
         }
 
         val exerciseName = binding.enterExerciseName.text.toString()

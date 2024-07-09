@@ -20,7 +20,7 @@
         android:id="@+id/addNewPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/purple_200"
         android:src="@drawable/icon_add"

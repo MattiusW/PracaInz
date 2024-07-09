@@ -34,6 +34,6 @@ interface ExcercisesDao {
 //    fun getProgressOfExercisesGroupByCategory(): Flow<List<Exercise>>
 
     // TODO sprawdzic czy dziala i czy wszystko sie dobrze ze soba laczy
-    @Query("SELECT * FROM exercises_table INNER JOIN training_plans_table ON trainingPlanId == planId WHERE trainingPlanId = :trainingPlanId ORDER BY exerciseId DESC")
+    @Query("SELECT * FROM exercises_table INNER JOIN training_plans_table ON trainingPlanId == planId WHERE trainingPlanId = :trainingPlanId")
     fun getExercisesByTrainingPlan(trainingPlanId: Long): Flow<List<Exercise>>
 }

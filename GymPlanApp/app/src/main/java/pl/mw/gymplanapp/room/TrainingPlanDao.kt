@@ -25,7 +25,7 @@ interface TrainingPlanDao {
     suspend fun deleteTrainingPlans(trainingPlans: List<TrainingPlan>)
 
     // Pokazanie wszystkich planow
-    @Query("SELECT * FROM training_plans_table ORDER BY planId DESC")
+    @Query("SELECT * FROM training_plans_table")
     fun getAllTrainingPlans(): Flow<List<TrainingPlan>>
 
 }

@@ -19,9 +19,12 @@ import pl.mw.gymplanapp.repository.TraningPlanRepository
 class MainViewModel(app: Application) : AndroidViewModel(app) {
     var isButtonVisible = true
     var isMenuVisible = true
+
     private var selectedTrainingPlan: TrainingPlan? = null
     private val trainingPlanRepo = TraningPlanRepository(app.applicationContext)
     private val excercisesRepo = ExcercisesRepository(app.applicationContext)
+
+    private var selectedExercise: Exercise? = null
 
     // Training plan repository metody
     fun insertTrainingPlan(trainingPlan: TrainingPlan) =
@@ -77,4 +80,13 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     fun getAllExercisesByPlan(trainingPlanId: Long) =
         excercisesRepo.getExercisesByTrainingPlan(trainingPlanId).asLiveData(viewModelScope.coroutineContext)
 
+    fun selectExercise(exercise: Exercise) {
+        selectedExercise = exercise
+    }
+
+    fun unSelectExercise() {
+        selectedExercise = null
+    }
+
+    fun getSelectedExercise() = selectedExercise
 }

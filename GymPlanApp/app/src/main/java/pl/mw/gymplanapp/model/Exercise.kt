@@ -18,8 +18,8 @@ import androidx.room.PrimaryKey
 data class Exercise(
     @PrimaryKey(autoGenerate = true)
     var exerciseId: Long = 0,
-    val name_exercise: String,
-    val amount_exercise: Int,
+    val name_exercise: String = "",
+    val amount_exercise: Int = 0,
     val weight_exercise: Double,
     val category_exercise: ExerciseCategory,
     @ColumnInfo("trainingPlanId")

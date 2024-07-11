@@ -13,6 +13,8 @@ import pl.mw.gymplanapp.databinding.FragmentAddExerciseBinding
 import pl.mw.gymplanapp.databinding.FragmentExercisesBinding
 import pl.mw.gymplanapp.model.Exercise
 import pl.mw.gymplanapp.model.ExerciseCategory
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class AddExerciseFragment : Fragment() {
 
@@ -57,7 +59,10 @@ class AddExerciseFragment : Fragment() {
         val weight = binding.enterWeight.text.toString()
         val planId = mainVm.getSelectedTrainingPlanId()
 
-        return Exercise(0, exerciseName, series.toInt(), weight.toDouble(), type, planId)
+        // Chwilowa konwercja aby ustawic dwa miejsca po przecinku
+        val weightBD = BigDecimal.valueOf(weight.toDouble()).setScale(2, RoundingMode.HALF_UP)
+
+        return Exercise(0, exerciseName, series.toInt(), weightBD.toDouble() , type, planId)
     }
 
     override fun onDestroy() {

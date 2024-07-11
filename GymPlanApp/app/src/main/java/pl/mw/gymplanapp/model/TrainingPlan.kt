@@ -9,6 +9,6 @@ data class TrainingPlan(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo("planId")
     var planId: Long = 0,
-    val name_training: String,
+    val name_training: String = "",
     val date: Long
 )

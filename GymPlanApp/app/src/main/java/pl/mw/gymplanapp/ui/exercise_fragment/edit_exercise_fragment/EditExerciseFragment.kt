@@ -2,6 +2,7 @@ package pl.mw.gymplanapp.ui.exercise_fragment.edit_exercise_fragment
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -107,11 +108,18 @@ class EditExerciseFragment : Fragment() {
         }
 
         val exerciseName = binding.enterExerciseName.text.toString()
-        val series = binding.enterAmountSeries.text.toString()
+        var series = binding.enterAmountSeries.text.toString()
         val weight = binding.enterWeight.text.toString()
         val planId = mainVm.getSelectedTrainingPlanId()
+        var weightBD : BigDecimal = BigDecimal.ZERO;
 
-        val weightBD = BigDecimal.valueOf(weight.toDouble()).setScale(2, RoundingMode.HALF_UP)
+        // Chwilowa konwercja aby ustawic dwa miejsca po przecinku zabezpieczenie przed input for string ""
+        if (!TextUtils.isEmpty(weight)) {
+            weightBD = BigDecimal.valueOf(weight.toDouble()).setScale(2, RoundingMode.HALF_UP)
+        }
+        if (TextUtils.isEmpty(series)){
+            series = "0";
+        }
 
         return Exercise(mainVm.getSelectedExercise()!!.exerciseId, exerciseName, series.toInt(), weightBD.toDouble(), type, planId)
     }

@@ -20,7 +20,7 @@ data class Exercise(
     var exerciseId: Long = 0,
     val name_exercise: String = "",
     val amount_exercise: Int = 0,
-    val weight_exercise: Double,
+    val weight_exercise: Double = 0.0,
     val category_exercise: ExerciseCategory,
     @ColumnInfo("trainingPlanId")
     var trainingPlanId: Long

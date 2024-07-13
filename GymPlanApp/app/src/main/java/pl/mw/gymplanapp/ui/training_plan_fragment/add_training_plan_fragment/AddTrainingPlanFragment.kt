@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import pl.mw.gymplanapp.MainActivity
@@ -49,9 +50,12 @@ class AddTrainingPlanFragment : Fragment() {
 
         binding.savePlanBtn.setOnClickListener {
             val training_plan = createTrainingPlan()
-            mainVm.insertTrainingPlan(training_plan)
-            // Kiedy plan wysle sie do bazy danych cofniemy sie poprzedniego widoku
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+            if (training_plan != null) {
+                mainVm.insertTrainingPlan(training_plan)
+                // Kiedy plan wysle sie do bazy danych cofniemy sie poprzedniego widoku
+                requireActivity().onBackPressedDispatcher.onBackPressed()
+            }
+
         }
     }
 
@@ -74,8 +78,15 @@ class AddTrainingPlanFragment : Fragment() {
         newDatePicker.show(parentFragmentManager, "DatePicker")
     }
 
-    private fun createTrainingPlan(): TrainingPlan {
+    private fun createTrainingPlan(): TrainingPlan? {
         val namePlan = binding.enterPlanName.text.toString()
+
+        // Walidacja danych nazwy planu
+        if (namePlan.isEmpty() || namePlan.length >= 70) {
+            binding.enterPlanName.error = "Wprowadź od 1 do 70 znaków"
+            Toast.makeText(context, "Podaj poprawną nazwę planu treningowego", Toast.LENGTH_SHORT).show()
+            return null
+        }
 
         return TrainingPlan(0, namePlan, viewModel.date)
     }

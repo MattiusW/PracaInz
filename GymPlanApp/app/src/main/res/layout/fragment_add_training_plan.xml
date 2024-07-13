@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.training_plan_fragment.add_training_plan_fragment.AddTrainingPlanFragment"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:textSize="30dp"
         android:textStyle="bold"
         android:gravity="center"
@@ -24,13 +25,21 @@
         android:textSize="20sp"
         android:text="@string/info_get_plan_name" />
 
-   <EditText
-       android:id="@+id/enter_plan_name"
-       android:layout_margin="20dp"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textSize="20sp"
-       android:hint="Wpisz nazwe planu"/>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="70">
+
+       <com.google.android.material.textfield.TextInputEditText
+           android:id="@+id/enter_plan_name"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:textSize="20sp"
+           android:hint="Wpisz nazwę planu"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:text="@string/info_get_date_plan"

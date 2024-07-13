@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import pl.mw.gymplanapp.MainActivity
@@ -68,12 +69,20 @@ class EditTrainingPlanFragment : Fragment() {
 
     private fun updateTrainingPlan() {
         val updateTraining = createTrainingPlan()
-        mainVm.updateTrainingPlan(updateTraining)
-        requireActivity().onBackPressedDispatcher.onBackPressed()
+        if (updateTraining != null) {
+            mainVm.updateTrainingPlan(updateTraining)
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 
-    private fun createTrainingPlan(): TrainingPlan {
+    private fun createTrainingPlan(): TrainingPlan? {
         val namePlan = binding.enterPlanName.text.toString()
+
+        if (namePlan.isEmpty() || namePlan.length >= 70) {
+            binding.enterPlanName.error = "Wprowadź od 1 do 70 znaków"
+            Toast.makeText(context, "Podaj poprawną nazwę planu treningowego", Toast.LENGTH_SHORT).show()
+            return null
+        }
 
         return TrainingPlan(mainVm.getSelectedTrainingPlan()!!.planId, namePlan, viewModel.date)
     }

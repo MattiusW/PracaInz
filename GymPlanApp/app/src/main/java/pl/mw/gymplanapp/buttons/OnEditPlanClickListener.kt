@@ -1,4 +1,4 @@
-package pl.mw.gymplanapp.room
+package pl.mw.gymplanapp.buttons
 
 import pl.mw.gymplanapp.model.TrainingPlan
 

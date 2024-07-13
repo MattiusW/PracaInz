@@ -3,12 +3,11 @@ package pl.mw.gymplanapp.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.constraintlayout.motion.widget.MotionScene.Transition.TransitionOnClick
 import androidx.recyclerview.widget.RecyclerView
 import pl.mw.gymplanapp.R
 import pl.mw.gymplanapp.databinding.TreningPlanRowBinding
 import pl.mw.gymplanapp.model.TrainingPlan
-import pl.mw.gymplanapp.room.OnEditPlanClickListener
+import pl.mw.gymplanapp.buttons.OnEditPlanClickListener
 import java.text.SimpleDateFormat
 import java.util.Date
 

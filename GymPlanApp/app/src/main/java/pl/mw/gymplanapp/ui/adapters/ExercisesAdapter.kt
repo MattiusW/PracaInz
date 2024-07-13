@@ -2,11 +2,18 @@ package pl.mw.gymplanapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
+import pl.mw.gymplanapp.buttons.OnMinusSeriesClickListener
+import pl.mw.gymplanapp.buttons.OnPlusSeriesClickListener
 import pl.mw.gymplanapp.databinding.ExerciseRowBinding
 import pl.mw.gymplanapp.model.Exercise
 
-class ExercisesAdapter(private val exercises: List<Exercise>, private val onClick: (Exercise, Int) -> Unit): RecyclerView.Adapter<ExercisesAdapter.ExercisesViewHolder>() {
+class ExercisesAdapter(private val exercises: List<Exercise>,
+                       private val onMinusSeriesClickListener: OnMinusSeriesClickListener,
+                       private val onPlusSeriesClickListener: OnPlusSeriesClickListener,
+                       private val onClick: (Exercise, Int) -> Unit): RecyclerView.Adapter<ExercisesAdapter.ExercisesViewHolder>() {
+
     inner class ExercisesViewHolder(binding: ExerciseRowBinding): RecyclerView.ViewHolder(binding.root) {
 
         init {
@@ -20,6 +27,8 @@ class ExercisesAdapter(private val exercises: List<Exercise>, private val onClic
         val categoryExercise = binding.categoryExercise
         val amountExercise = binding.amountExercise
         val weightExercise = binding.weightExercise
+        val amountButtonMinus: AppCompatButton = binding.amountButtonMinus
+        val amountButtonPlus: AppCompatButton = binding.amountButtonPlus
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExercisesViewHolder {
@@ -44,6 +53,14 @@ class ExercisesAdapter(private val exercises: List<Exercise>, private val onClic
         holder.categoryExercise.text = exercises[position].category_exercise.name
         holder.amountExercise.text = exercises[position].amount_exercise.toString()
         holder.weightExercise.text = exercises[position].weight_exercise.toString()
+
+        holder.amountButtonMinus.setOnClickListener {
+            onMinusSeriesClickListener.onMinusSeriesClick(exercises[position])
+        }
+
+        holder.amountButtonPlus.setOnClickListener {
+            onPlusSeriesClickListener.OnPlusSeriesClick(exercise = exercises[position])
+        }
 
     }
 }

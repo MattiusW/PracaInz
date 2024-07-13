@@ -14,12 +14,14 @@ import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
 import pl.mw.gymplanapp.buttons.OnMinusSeriesClickListener
+import pl.mw.gymplanapp.buttons.OnMinusWeightClickListener
 import pl.mw.gymplanapp.buttons.OnPlusSeriesClickListener
+import pl.mw.gymplanapp.buttons.OnPlusWeightClickListener
 import pl.mw.gymplanapp.databinding.FragmentExercisesBinding
 import pl.mw.gymplanapp.model.Exercise
 import pl.mw.gymplanapp.ui.adapters.ExercisesAdapter
 
-class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesClickListener {
+class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesClickListener, OnMinusWeightClickListener, OnPlusWeightClickListener {
 
     private val exercisesViewModel by viewModels<ExercisesViewModel>()
     private val mainVm by activityViewModels<MainViewModel>()
@@ -53,7 +55,11 @@ class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesCl
         mainVm.getSelectedTrainingPlan()?.let { trainingPlan ->
             mainVm.getAllExercisesByPlan(trainingPlan.planId).observe(viewLifecycleOwner) {
                 exercises ->
-                binding.exerciseRecylerView.adapter = ExercisesAdapter(exercises,this, this) {
+                binding.exerciseRecylerView.adapter = ExercisesAdapter(exercises,
+                    this,
+                    this,
+                    this,
+                    this) {
                     exercises, position ->
                     mainVm.selectExercise(exercises)
                     findNavController().navigate(R.id.editExerciseFragment)
@@ -64,7 +70,6 @@ class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesCl
         binding.addExercise.setOnClickListener {
             findNavController().navigate(R.id.addExerciseFragment)
         }
-
     }
 
     private fun handleOnBackPressed() {
@@ -82,4 +87,13 @@ class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesCl
         mainVm.updateExercise(updatePlusSeries)
     }
 
+    override fun onMinusWeightClick(exercise: Exercise) {
+        val updateMinusWeight = exercise.copy(weight_exercise = (exercise.weight_exercise - 0.50).coerceAtLeast(0.0))
+        mainVm.updateExercise(updateMinusWeight)
+    }
+
+    override fun onPlusWeightClick(exercise: Exercise) {
+        val updatePlusWeight = exercise.copy(weight_exercise = (exercise.weight_exercise + 0.50).coerceAtMost(999.00))
+        mainVm.updateExercise(updatePlusWeight)
+    }
 }

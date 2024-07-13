@@ -5,13 +5,17 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import pl.mw.gymplanapp.buttons.OnMinusSeriesClickListener
+import pl.mw.gymplanapp.buttons.OnMinusWeightClickListener
 import pl.mw.gymplanapp.buttons.OnPlusSeriesClickListener
+import pl.mw.gymplanapp.buttons.OnPlusWeightClickListener
 import pl.mw.gymplanapp.databinding.ExerciseRowBinding
 import pl.mw.gymplanapp.model.Exercise
 
 class ExercisesAdapter(private val exercises: List<Exercise>,
                        private val onMinusSeriesClickListener: OnMinusSeriesClickListener,
                        private val onPlusSeriesClickListener: OnPlusSeriesClickListener,
+                       private val onMinusWeightClickListener: OnMinusWeightClickListener,
+                       private val onPlusWeightClickListener: OnPlusWeightClickListener,
                        private val onClick: (Exercise, Int) -> Unit): RecyclerView.Adapter<ExercisesAdapter.ExercisesViewHolder>() {
 
     inner class ExercisesViewHolder(binding: ExerciseRowBinding): RecyclerView.ViewHolder(binding.root) {
@@ -29,6 +33,8 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
         val weightExercise = binding.weightExercise
         val amountButtonMinus: AppCompatButton = binding.amountButtonMinus
         val amountButtonPlus: AppCompatButton = binding.amountButtonPlus
+        val weightButtonMinus: AppCompatButton = binding.weightButtonMinus
+        val weightButtonPlus: AppCompatButton = binding.weightButtonPlus
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExercisesViewHolder {
@@ -62,5 +68,13 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
             onPlusSeriesClickListener.OnPlusSeriesClick(exercise = exercises[position])
         }
 
+        // przeslanie cwiczenia do interfejsu
+        holder.weightButtonMinus.setOnClickListener {
+            onMinusWeightClickListener.onMinusWeightClick(exercise = exercises[position])
+        }
+
+        holder.weightButtonPlus.setOnClickListener {
+            onPlusWeightClickListener.onPlusWeightClick(exercise = exercises[position])
+        }
     }
 }

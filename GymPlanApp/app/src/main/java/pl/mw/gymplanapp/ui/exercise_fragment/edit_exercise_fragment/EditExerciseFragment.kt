@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
@@ -64,8 +65,11 @@ class EditExerciseFragment : Fragment() {
 
     private fun updateExercise() {
         val updateExe = createExercise()
-        mainVm.updateExercise(updateExe)
-        requireActivity().onBackPressedDispatcher.onBackPressed()
+        if (updateExe != null) {
+            mainVm.updateExercise(updateExe)
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
     }
 
     private fun setCurrentName(nameExercise: String) {
@@ -95,7 +99,7 @@ class EditExerciseFragment : Fragment() {
         binding.enterAmountSeries.setText(amountExercise.toString())
     }
 
-    private fun createExercise(): Exercise {
+    private fun createExercise(): Exercise? {
         //  Stworzenie logiki wybierania kategorii (CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS)
         val type = when(binding.categoryExerciseSpinner.selectedItem.toString()){
             "KLATKA" -> ExerciseCategory.KLATKA
@@ -112,6 +116,17 @@ class EditExerciseFragment : Fragment() {
         val weight = binding.enterWeight.text.toString()
         val planId = mainVm.getSelectedTrainingPlanId()
         var weightBD : BigDecimal = BigDecimal.ZERO;
+
+        if (exerciseName.isEmpty() || exerciseName.length > 70) {
+            binding.enterExerciseName.error = "Wprowadź od 1 do 70 znaków"
+            Toast.makeText(context, "Podaj poprawną nazwę ćwiczenia", Toast.LENGTH_SHORT).show()
+            return null
+        }
+
+        if (series.toInt() > 99) {
+            binding.enterAmountSeries.error = "Max 99 serii"
+            return null
+        }
 
         // Chwilowa konwercja aby ustawic dwa miejsca po przecinku zabezpieczenie przed input for string ""
         if (!TextUtils.isEmpty(weight)) {

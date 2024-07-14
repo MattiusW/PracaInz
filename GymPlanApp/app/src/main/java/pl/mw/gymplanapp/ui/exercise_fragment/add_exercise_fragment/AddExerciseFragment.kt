@@ -7,11 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import pl.mw.gymplanapp.MainViewModel
-import pl.mw.gymplanapp.R
 import pl.mw.gymplanapp.databinding.FragmentAddExerciseBinding
-import pl.mw.gymplanapp.databinding.FragmentExercisesBinding
 import pl.mw.gymplanapp.model.Exercise
 import pl.mw.gymplanapp.model.ExerciseCategory
 import java.math.BigDecimal
@@ -37,13 +36,15 @@ class AddExerciseFragment : Fragment() {
 
         binding.saveExerciseBtn.setOnClickListener {
             val exercise_add = createExercise()
-            mainVm.insertExercise(exercise_add)
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+            if(exercise_add != null) {
+                mainVm.insertExercise(exercise_add)
+                requireActivity().onBackPressedDispatcher.onBackPressed()
+            }
         }
 
     }
 
-    private fun createExercise(): Exercise {
+    private fun createExercise(): Exercise? {
         //  Stworzenie logiki wybierania kategorii (CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS)
         val type = when(binding.categoryExerciseSpinner.selectedItem.toString()){
             "KLATKA" -> ExerciseCategory.KLATKA
@@ -60,6 +61,19 @@ class AddExerciseFragment : Fragment() {
         val weight = binding.enterWeight.text.toString()
         val planId = mainVm.getSelectedTrainingPlanId()
         var weightBD : BigDecimal = BigDecimal.ZERO;
+
+        // Walidacja danych nazwy planu
+        if (exerciseName.isEmpty() || exerciseName.length > 70) {
+            binding.enterExerciseName.error = "Wprowadź od 1 do 70 znaków"
+            Toast.makeText(context, "Podaj poprawną nazwę ćwiczenia", Toast.LENGTH_SHORT).show()
+            return null
+        }
+
+        // Walidacja maksymalnej liczby serii
+        if (series.toInt() > 99) {
+            binding.enterAmountSeries.error = "Max 99 serii"
+            return null
+        }
 
         // Chwilowa konwercja aby ustawic dwa miejsca po przecinku zabezpieczenie przed input for string ""
         if (!TextUtils.isEmpty(weight)) {

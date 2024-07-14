@@ -82,7 +82,7 @@ class AddTrainingPlanFragment : Fragment() {
         val namePlan = binding.enterPlanName.text.toString()
 
         // Walidacja danych nazwy planu
-        if (namePlan.isEmpty() || namePlan.length >= 70) {
+        if (namePlan.isEmpty() || namePlan.length > 70) {
             binding.enterPlanName.error = "Wprowadź od 1 do 70 znaków"
             Toast.makeText(context, "Podaj poprawną nazwę planu treningowego", Toast.LENGTH_SHORT).show()
             return null

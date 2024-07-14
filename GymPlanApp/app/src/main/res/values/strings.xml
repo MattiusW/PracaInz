@@ -9,8 +9,8 @@
     <string name="button_delete">Usuń plan</string>
     <string name="add_exercise_name">Wprowadź nazwę ćwiczenia</string>
     <string name="add_series">Wprowadź liczbę powtórzeń</string>
-    <string name="add_series_label">Liczba powtórzeń</string>
-    <string name="add_weight">Waga ciężaru</string>
+    <string name="add_series_label">Serie</string>
+    <string name="add_weight">Ciężar</string>
     <string name="name_exercise">Nazwa ćwiczenia</string>
     <string name="category_exercise">Wybierz kategorie ćwiczenia</string>
     <string name="button_delete_ex">Usuń</string>

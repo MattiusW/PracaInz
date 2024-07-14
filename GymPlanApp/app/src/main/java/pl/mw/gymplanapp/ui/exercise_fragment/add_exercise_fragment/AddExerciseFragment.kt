@@ -60,7 +60,8 @@ class AddExerciseFragment : Fragment() {
         var series = binding.enterAmountSeries.text.toString()
         val weight = binding.enterWeight.text.toString()
         val planId = mainVm.getSelectedTrainingPlanId()
-        var weightBD : BigDecimal = BigDecimal.ZERO;
+        var weightBD: BigDecimal = BigDecimal.ZERO;
+        val weightScale: BigDecimal = BigDecimal(999.00)
 
         // Walidacja danych nazwy planu
         if (exerciseName.isEmpty() || exerciseName.length > 70) {
@@ -70,17 +71,25 @@ class AddExerciseFragment : Fragment() {
         }
 
         // Walidacja maksymalnej liczby serii
-        if (series.toInt() > 99) {
-            binding.enterAmountSeries.error = "Max 99 serii"
+        if (series.isEmpty() || series.toInt() > 99) {
+            binding.enterAmountSeries.error = "Wprowadź od 0 do 99 serii"
+            Toast.makeText(context, "Podaj prawidłową liczbę serii", Toast.LENGTH_LONG).show()
+            return null
+        }
+
+        if(weight.isEmpty() || weight.length > 6) {
+            binding.enterWeight.error = "Podaj liczbę do 6 znaków"
+            Toast.makeText(context, "Podaj prawidłowe obciążenie \nPrzykład 120.50", Toast.LENGTH_LONG).show()
             return null
         }
 
         // Chwilowa konwercja aby ustawic dwa miejsca po przecinku zabezpieczenie przed input for string ""
         if (!TextUtils.isEmpty(weight)) {
             weightBD = BigDecimal.valueOf(weight.toDouble()).setScale(2, RoundingMode.HALF_UP)
-        }
-        if (TextUtils.isEmpty(series)){
-            series = "0";
+            if(weightBD > weightScale) {
+                binding.enterWeight.error = "Maksymalne obciażenie to 999.0"
+                return null
+            }
         }
 
         return Exercise(0, exerciseName, series.toInt(), weightBD.toDouble() , type, planId)

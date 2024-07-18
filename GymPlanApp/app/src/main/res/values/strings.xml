@@ -15,6 +15,9 @@
     <string name="category_exercise">Wybierz kategorie ćwiczenia</string>
     <string name="button_delete_ex">Usuń</string>
     <string name="edit_exercise">Edytuj ćwiczenie</string>
+    <string name="weight">Obciążenie:</string>
+    <string name="series">Serie:</string>
+    <string name="amout">Powtórzenia:</string>
 
     <!--   Spinner category (    CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS   ) -->
     <string-array name="category_exercise">

@@ -29,6 +29,7 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
         val iconExercise = binding.exerciseIcon
         val nameExercise = binding.nameExercise
         val categoryExercise = binding.categoryExercise
+        val seriesExercise = binding.seriesExercise
         val amountExercise = binding.amountExercise
         val weightExercise = binding.weightExercise
         val amountButtonMinus: AppCompatButton = binding.amountButtonMinus
@@ -57,6 +58,7 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
 
         holder.nameExercise.text = exercises[position].name_exercise.toString()
         holder.categoryExercise.text = exercises[position].category_exercise.name
+        holder.seriesExercise.text = exercises[position].series_exercise.toString()
         holder.amountExercise.text = exercises[position].amount_exercise.toString()
         holder.weightExercise.text = exercises[position].weight_exercise.toString()
 

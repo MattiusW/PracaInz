@@ -57,7 +57,8 @@ class AddExerciseFragment : Fragment() {
         }
 
         val exerciseName = binding.enterExerciseName.text.toString()
-        var series = binding.enterAmountSeries.text.toString()
+        val series = binding.enterSeries.text.toString()
+        val repeat = binding.enterAmountSeries.text.toString()
         val weight = binding.enterWeight.text.toString()
         val planId = mainVm.getSelectedTrainingPlanId()
         var weightBD: BigDecimal = BigDecimal.ZERO;
@@ -70,10 +71,17 @@ class AddExerciseFragment : Fragment() {
             return null
         }
 
-        // Walidacja maksymalnej liczby serii
+        // Walidacja danych maksymalnej liczby serii
         if (series.isEmpty() || series.toInt() > 99) {
-            binding.enterAmountSeries.error = "Wprowadź od 0 do 99 serii"
+            binding.enterSeries.error = "Wprowadź od 0 do 99 serii"
             Toast.makeText(context, "Podaj prawidłową liczbę serii", Toast.LENGTH_LONG).show()
+            return null
+        }
+
+        // Walidacja maksymalnej liczby powtórzeń
+        if (repeat.isEmpty() || repeat.toInt() > 99) {
+            binding.enterAmountSeries.error = "Wprowadź od 0 do 99 powtórzeń"
+            Toast.makeText(context, "Podaj prawidłową liczbę powtórzeń", Toast.LENGTH_LONG).show()
             return null
         }
 
@@ -92,7 +100,14 @@ class AddExerciseFragment : Fragment() {
             }
         }
 
-        return Exercise(0, exerciseName, series.toInt(), weightBD.toDouble() , type, planId)
+        return Exercise(
+            exerciseId = 0,
+            name_exercise = exerciseName,
+            series_exercise = series.toInt(),
+            amount_exercise = repeat.toInt(),
+            weight_exercise = weightBD.toDouble(),
+            category_exercise = type,
+            trainingPlanId = planId)
     }
 
     override fun onDestroy() {

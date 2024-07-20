@@ -44,6 +44,7 @@ class EditExerciseFragment : Fragment() {
 
     private fun setExerciseData(exercise: Exercise) {
         setCurrentName(exercise.name_exercise)
+        setCurrentRepeat(exercise.series_exercise)
         setCurrentAmount(exercise.amount_exercise)
         setCurrentWeight(exercise.weight_exercise)
         setCurrentCategory(exercise.category_exercise)
@@ -70,6 +71,10 @@ class EditExerciseFragment : Fragment() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
+    }
+
+    private fun setCurrentRepeat(series: Int) {
+        binding.enterSeries.setText(series.toString())
     }
 
     private fun setCurrentName(nameExercise: String) {
@@ -112,7 +117,8 @@ class EditExerciseFragment : Fragment() {
         }
 
         val exerciseName = binding.enterExerciseName.text.toString()
-        var series = binding.enterAmountSeries.text.toString()
+        val series = binding.enterSeries.text.toString()
+        var repeat = binding.enterAmountSeries.text.toString()
         val weight = binding.enterWeight.text.toString()
         val planId = mainVm.getSelectedTrainingPlanId()
         var weightBD : BigDecimal = BigDecimal.ZERO;
@@ -126,8 +132,15 @@ class EditExerciseFragment : Fragment() {
 
         // Walidacja maksymalnej liczby serii
         if (series.isEmpty() || series.toInt() > 99) {
-            binding.enterAmountSeries.error = "Wprowadź od 0 do 99 serii"
+            binding.enterSeries.error = "Wprowadź od 0 do 99 serii"
             Toast.makeText(context, "Podaj prawidłową liczbę serii", Toast.LENGTH_LONG).show()
+            return null
+        }
+
+        // Walidacja maksymalnej liczby powtorzen
+        if (repeat.isEmpty() || repeat.toInt() > 99) {
+            binding.enterAmountSeries.error = "Wprowadź od 0 do 99 powtórzeń"
+            Toast.makeText(context, "Podaj prawidłową liczbę powtórzeń", Toast.LENGTH_LONG).show()
             return null
         }
 
@@ -146,7 +159,7 @@ class EditExerciseFragment : Fragment() {
             }
         }
 
-        return Exercise(mainVm.getSelectedExercise()!!.exerciseId, exerciseName, series.toInt(), weightBD.toDouble(), type, planId)
+        return Exercise(mainVm.getSelectedExercise()!!.exerciseId, exerciseName, series.toInt(), repeat.toInt(), weightBD.toDouble(), type, planId)
     }
 
     override fun onDestroy() {

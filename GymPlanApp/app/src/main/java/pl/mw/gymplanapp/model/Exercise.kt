@@ -19,6 +19,7 @@ data class Exercise(
     @PrimaryKey(autoGenerate = true)
     var exerciseId: Long = 0,
     val name_exercise: String = "",
+    val series_exercise: Int = 0,
     val amount_exercise: Int = 0,
     val weight_exercise: Double = 0.0,
     val category_exercise: ExerciseCategory,

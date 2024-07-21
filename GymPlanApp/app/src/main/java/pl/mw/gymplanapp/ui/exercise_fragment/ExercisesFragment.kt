@@ -14,15 +14,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
+import pl.mw.gymplanapp.buttons.OnMinusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnMinusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnMinusWeightClickListener
+import pl.mw.gymplanapp.buttons.OnPlusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnPlusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnPlusWeightClickListener
 import pl.mw.gymplanapp.databinding.FragmentExercisesBinding
 import pl.mw.gymplanapp.model.Exercise
 import pl.mw.gymplanapp.ui.adapters.ExercisesAdapter
 
-class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesClickListener, OnMinusWeightClickListener, OnPlusWeightClickListener {
+class ExercisesFragment : Fragment(),
+    OnMinusSeriesClickListener,
+    OnPlusSeriesClickListener,
+    OnMinusRepeatClickListener,
+    OnPlusRepeatClickListener,
+    OnMinusWeightClickListener,
+    OnPlusWeightClickListener {
 
     private val exercisesViewModel by viewModels<ExercisesViewModel>()
     private val mainVm by activityViewModels<MainViewModel>()
@@ -64,6 +72,8 @@ class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesCl
                         this,
                         this,
                         this,
+                        this,
+                        this,
                         this
                     )
                     { exercises, position ->
@@ -95,18 +105,32 @@ class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesCl
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
     }
 
-    // Zrobienie kopii encji cwiczenie oraz update zmniejszenie pola o 1
     override fun onMinusSeriesClick(exercise: Exercise) {
-        saveRecylerViewState() // zapisanie aktualnego stanu RV
-        val updateMinusSeries = exercise.copy(amount_exercise = (exercise.amount_exercise - 1).coerceAtLeast(0))
+        saveRecylerViewState()
+        val updateMinusSeries = exercise.copy(series_exercise = (exercise.series_exercise - 1).coerceAtLeast(0))
         mainVm.updateExercise(updateMinusSeries)
+        restoreRecylerViewState()
+    }
+
+    override fun onPlusSeriesClick(exercise: Exercise) {
+        saveRecylerViewState()
+        val updatePlusSeries = exercise.copy(series_exercise = (exercise.series_exercise + 1).coerceAtMost(99))
+        mainVm.updateExercise(updatePlusSeries)
+        restoreRecylerViewState()
+    }
+
+    // Zrobienie kopii encji cwiczenie oraz update zmniejszenie pola o 1
+    override fun onMinusRepeatClick(exercise: Exercise) {
+        saveRecylerViewState() // zapisanie aktualnego stanu RV
+        val updateMinusRepeat = exercise.copy(amount_exercise = (exercise.amount_exercise - 1).coerceAtLeast(0))
+        mainVm.updateExercise(updateMinusRepeat)
         restoreRecylerViewState() // przywrocenie w tym samym miejscu RV
     }
 
-    override fun OnPlusSeriesClick(exercise: Exercise) {
+    override fun onPlusRepeatClick(exercise: Exercise) {
         saveRecylerViewState()
-        val updatePlusSeries = exercise.copy(amount_exercise = (exercise.amount_exercise + 1).coerceAtMost(99))
-        mainVm.updateExercise(updatePlusSeries)
+        val updatePlusRepeat = exercise.copy(amount_exercise = (exercise.amount_exercise + 1).coerceAtMost(99))
+        mainVm.updateExercise(updatePlusRepeat)
         restoreRecylerViewState()
     }
 
@@ -123,4 +147,5 @@ class ExercisesFragment : Fragment(), OnMinusSeriesClickListener, OnPlusSeriesCl
         mainVm.updateExercise(updatePlusWeight)
         restoreRecylerViewState()
     }
+
 }

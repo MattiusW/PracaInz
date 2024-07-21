@@ -65,8 +65,8 @@ class AddExerciseFragment : Fragment() {
         val weightScale: BigDecimal = BigDecimal(999.00)
 
         // Walidacja danych nazwy planu
-        if (exerciseName.isEmpty() || exerciseName.length > 70) {
-            binding.enterExerciseName.error = "Wprowadź od 1 do 70 znaków"
+        if (exerciseName.isEmpty() || exerciseName.length > 100) {
+            binding.enterExerciseName.error = "Wprowadź od 1 do 100 znaków"
             Toast.makeText(context, "Podaj poprawną nazwę ćwiczenia", Toast.LENGTH_SHORT).show()
             return null
         }

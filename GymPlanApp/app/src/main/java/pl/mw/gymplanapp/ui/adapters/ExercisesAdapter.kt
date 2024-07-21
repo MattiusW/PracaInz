@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
+import pl.mw.gymplanapp.buttons.OnMinusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnMinusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnMinusWeightClickListener
+import pl.mw.gymplanapp.buttons.OnPlusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnPlusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnPlusWeightClickListener
 import pl.mw.gymplanapp.databinding.ExerciseRowBinding
@@ -14,6 +16,8 @@ import pl.mw.gymplanapp.model.Exercise
 class ExercisesAdapter(private val exercises: List<Exercise>,
                        private val onMinusSeriesClickListener: OnMinusSeriesClickListener,
                        private val onPlusSeriesClickListener: OnPlusSeriesClickListener,
+                       private val onMinusRepeatClickListener: OnMinusRepeatClickListener,
+                       private val onPlusRepeatClickListener: OnPlusRepeatClickListener,
                        private val onMinusWeightClickListener: OnMinusWeightClickListener,
                        private val onPlusWeightClickListener: OnPlusWeightClickListener,
                        private val onClick: (Exercise, Int) -> Unit): RecyclerView.Adapter<ExercisesAdapter.ExercisesViewHolder>() {
@@ -32,6 +36,8 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
         val seriesExercise = binding.seriesExercise
         val amountExercise = binding.amountExercise
         val weightExercise = binding.weightExercise
+        val seriesButtonMinus: AppCompatButton = binding.seriesButtonMinus
+        val seriesButtonPlus: AppCompatButton = binding.seriesButtonPlus
         val amountButtonMinus: AppCompatButton = binding.amountButtonMinus
         val amountButtonPlus: AppCompatButton = binding.amountButtonPlus
         val weightButtonMinus: AppCompatButton = binding.weightButtonMinus
@@ -62,12 +68,20 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
         holder.amountExercise.text = exercises[position].amount_exercise.toString()
         holder.weightExercise.text = exercises[position].weight_exercise.toString()
 
-        holder.amountButtonMinus.setOnClickListener {
+        holder.seriesButtonMinus.setOnClickListener {
             onMinusSeriesClickListener.onMinusSeriesClick(exercises[position])
         }
 
+        holder.seriesButtonPlus.setOnClickListener {
+            onPlusSeriesClickListener.onPlusSeriesClick(exercise = exercises[position])
+        }
+
+        holder.amountButtonMinus.setOnClickListener {
+            onMinusRepeatClickListener.onMinusRepeatClick(exercises[position])
+        }
+
         holder.amountButtonPlus.setOnClickListener {
-            onPlusSeriesClickListener.OnPlusSeriesClick(exercise = exercises[position])
+            onPlusRepeatClickListener.onPlusRepeatClick(exercise = exercises[position])
         }
 
         // przeslanie cwiczenia do interfejsu

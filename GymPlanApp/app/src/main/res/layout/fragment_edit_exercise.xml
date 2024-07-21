@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,183 +7,190 @@
     tools:context=".ui.training_plan_fragment.add_training_plan_fragment.AddTrainingPlanFragment"
     android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/edit_exercise" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="@string/edit_exercise" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/category_exercise"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/categoryExerciseSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:textAlignment="center"
-            android:layout_margin="10dp"
-            android:entries="@array/category_exercise" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/name_exercise"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="70">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enter_exercise_name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:hint="Edytuj nazwę ćwiczenia"/>
-        </com.google.android.material.textfield.TextInputLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_series_label"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_repeat_label"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="70dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/category_exercise"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/categoryExerciseSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textAlignment="center"
+                android:layout_margin="10dp"
+                android:entries="@array/category_exercise" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/name_exercise"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="100">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_exercise_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="20sp"
+                    android:hint="Edytuj nazwę ćwiczenia"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/add_series_label"
                     android:layout_margin="10dp"
-                    android:layout_weight="1">
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/enter_series"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:textSize="20sp"
-                        android:hint="@string/add_series_label"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1">
+                    android:text="@string/add_repeat_label"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="70dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/enter_amount_series"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:textSize="20sp"
-                        android:hint="@string/add_repeat_label"/>
-                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_weight"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/enter_weight"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/enter_series"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textSize="20sp"
+                            android:hint="@string/add_series_label"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/enter_amount_series"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textSize="20sp"
+                            android:hint="@string/add_repeat_label"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_weight"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/enter_weight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/add_weight"
+                        android:inputType="numberDecimal"
+                        android:textSize="20sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/saveExerciseBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:hint="@string/add_weight"
-                    android:inputType="numberDecimal"
-                    android:textSize="20sp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:background="@color/success"
+                    android:gravity="center"
+                    android:text="@string/button_save"
+                    android:textColor="#6D4C41"
+                    android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/deleteExerciseBtn"
+                android:background="@color/danger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="#6D4C41"
+                android:text="@string/button_delete_ex"
+                android:textSize="20sp"/>
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/saveExerciseBtn"
-            android:background="@color/success"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/button_save"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:textSize="20sp" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/deleteExerciseBtn"
-            android:background="@color/danger"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:text="@string/button_delete_ex"
-            android:textSize="20sp"/>
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

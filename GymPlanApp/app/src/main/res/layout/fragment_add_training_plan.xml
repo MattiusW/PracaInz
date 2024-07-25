@@ -11,112 +11,124 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:gravity="center"
         android:text="@string/add_plan" />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:text="@string/info_get_plan_name" />
+        android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:counterEnabled="true"
-        app:counterMaxLength="70">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-       <com.google.android.material.textfield.TextInputEditText
-           android:id="@+id/enter_plan_name"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:textSize="20sp"
-           android:hint="Wpisz nazwę planu"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:text="@string/info_get_plan_name"
+                android:textStyle="bold"/>
 
-    <TextView
-        android:text="@string/info_get_date_plan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="100">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp">
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/enter_plan_name"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:textSize="20sp"
+                   android:hint="Wpisz nazwę planu"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:text="DATA"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textStyle="bold"/>
+            <TextView
+                android:text="@string/info_get_date_plan"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"/>
 
-        <ImageView
-            android:id="@+id/calendarImage"
-            android:src="@mipmap/ic_launcher"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="20dp">
 
-    </LinearLayout>
+                <TextView
+                    android:text="DATA"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+                <ImageView
+                    android:id="@+id/calendarImage"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/dayTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Dzień"
-            android:layout_weight="1"
-            android:textSize="20sp"/>
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/monthTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Miesiąc"
-            android:layout_weight="1"
-            android:textSize="20sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
-        <TextView
-            android:id="@+id/yearTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Rok"
-            android:layout_weight="1"
-            android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/dayTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Dzień"
+                    android:layout_weight="1"
+                    android:textSize="20sp"/>
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/monthTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Miesiąc"
+                    android:layout_weight="1"
+                    android:textSize="20sp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/savePlanBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/success"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="@string/button_save"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="50dp"/>
+                <TextView
+                    android:id="@+id/yearTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Rok"
+                    android:layout_weight="1"
+                    android:textSize="20sp"/>
 
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/savePlanBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/success"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="@string/button_save"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="50dp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
 

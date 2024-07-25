@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+
         android:gravity="center"
         android:text="Treningi"
         android:textSize="40sp"
@@ -23,14 +23,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/planRecylerView"
         android:layout_width="match_parent"
-        android:layout_height="690dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/trening_plan_row"/>
+        android:layout_marginBottom="60dp"
+        tools:listitem="@layout/trening_plan_row" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

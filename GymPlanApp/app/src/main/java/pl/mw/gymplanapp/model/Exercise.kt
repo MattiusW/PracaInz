@@ -23,6 +23,7 @@ data class Exercise(
     val amount_exercise: Int = 0,
     val weight_exercise: Double = 0.0,
     val category_exercise: ExerciseCategory,
+    val done_exercise: Int = 0,
     @ColumnInfo("trainingPlanId")
     var trainingPlanId: Long
 )

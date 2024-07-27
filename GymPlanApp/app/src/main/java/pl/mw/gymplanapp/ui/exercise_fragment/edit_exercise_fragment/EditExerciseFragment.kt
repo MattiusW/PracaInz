@@ -70,7 +70,6 @@ class EditExerciseFragment : Fragment() {
             mainVm.updateExercise(updateExe)
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
-
     }
 
     private fun setCurrentRepeat(series: Int) {
@@ -103,6 +102,7 @@ class EditExerciseFragment : Fragment() {
     private fun setCurrentAmount(amountExercise: Int) {
         binding.enterAmountSeries.setText(amountExercise.toString())
     }
+
 
     private fun createExercise(): Exercise? {
         //  Stworzenie logiki wybierania kategorii (CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS)
@@ -159,7 +159,7 @@ class EditExerciseFragment : Fragment() {
             }
         }
 
-        return Exercise(mainVm.getSelectedExercise()!!.exerciseId, exerciseName, series.toInt(), repeat.toInt(), weightBD.toDouble(), type, planId)
+        return Exercise(mainVm.getSelectedExercise()!!.exerciseId, exerciseName, series.toInt(), repeat.toInt(), weightBD.toDouble(), type, 0, planId)
     }
 
     override fun onDestroy() {

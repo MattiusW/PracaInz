@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import pl.mw.gymplanapp.model.Exercise
 import pl.mw.gymplanapp.model.TrainingPlan
 
-@Database(entities = [TrainingPlan::class, Exercise::class], version = 2, exportSchema = false)
+@Database(entities = [TrainingPlan::class, Exercise::class], version = 3, exportSchema = false)
 abstract class GymDatabase: RoomDatabase() {
     abstract fun TrainingPlanDao(): TrainingPlanDao
     abstract fun ExcercisesDao(): ExcercisesDao

@@ -107,6 +107,7 @@ class AddExerciseFragment : Fragment() {
             amount_exercise = repeat.toInt(),
             weight_exercise = weightBD.toDouble(),
             category_exercise = type,
+            done_exercise = 0,
             trainingPlanId = planId)
     }
 

@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
+import pl.mw.gymplanapp.buttons.OnMinusDoneClickListener
 import pl.mw.gymplanapp.buttons.OnMinusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnMinusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnMinusWeightClickListener
+import pl.mw.gymplanapp.buttons.OnPlusDoneClickListener
 import pl.mw.gymplanapp.buttons.OnPlusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnPlusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnPlusWeightClickListener
@@ -20,6 +22,8 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
                        private val onPlusRepeatClickListener: OnPlusRepeatClickListener,
                        private val onMinusWeightClickListener: OnMinusWeightClickListener,
                        private val onPlusWeightClickListener: OnPlusWeightClickListener,
+                       private val onMinusDoneClickListener: OnMinusDoneClickListener,
+                       private val onPlusDoneClickListener: OnPlusDoneClickListener,
                        private val onClick: (Exercise, Int) -> Unit): RecyclerView.Adapter<ExercisesAdapter.ExercisesViewHolder>() {
 
     inner class ExercisesViewHolder(binding: ExerciseRowBinding): RecyclerView.ViewHolder(binding.root) {
@@ -36,12 +40,15 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
         val seriesExercise = binding.seriesExercise
         val amountExercise = binding.amountExercise
         val weightExercise = binding.weightExercise
+        val doneExercise = binding.doneExercise
         val seriesButtonMinus: AppCompatButton = binding.seriesButtonMinus
         val seriesButtonPlus: AppCompatButton = binding.seriesButtonPlus
         val amountButtonMinus: AppCompatButton = binding.amountButtonMinus
         val amountButtonPlus: AppCompatButton = binding.amountButtonPlus
         val weightButtonMinus: AppCompatButton = binding.weightButtonMinus
         val weightButtonPlus: AppCompatButton = binding.weightButtonPlus
+        val doneButtonMinus: AppCompatButton = binding.doneButtonMinus
+        val doneButtonPlus: AppCompatButton = binding.doneButtonPlus
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExercisesViewHolder {
@@ -67,6 +74,7 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
         holder.seriesExercise.text = exercises[position].series_exercise.toString()
         holder.amountExercise.text = exercises[position].amount_exercise.toString()
         holder.weightExercise.text = exercises[position].weight_exercise.toString()
+        holder.doneExercise.text = exercises[position].done_exercise.toString()
 
         holder.seriesButtonMinus.setOnClickListener {
             onMinusSeriesClickListener.onMinusSeriesClick(exercises[position])
@@ -91,6 +99,14 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
 
         holder.weightButtonPlus.setOnClickListener {
             onPlusWeightClickListener.onPlusWeightClick(exercise = exercises[position])
+        }
+
+        holder.doneButtonMinus.setOnClickListener {
+            onMinusDoneClickListener.onMinusDoneClick(exercise = exercises[position])
+        }
+
+        holder.doneButtonPlus.setOnClickListener {
+            onPlusDoneClickListener.onPlusDoneClick(exercise = exercises[position])
         }
     }
 }

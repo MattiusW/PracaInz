@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
+import pl.mw.gymplanapp.buttons.OnMinusDoneClickListener
 import pl.mw.gymplanapp.buttons.OnMinusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnMinusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnMinusWeightClickListener
+import pl.mw.gymplanapp.buttons.OnPlusDoneClickListener
 import pl.mw.gymplanapp.buttons.OnPlusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnPlusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnPlusWeightClickListener
@@ -30,7 +32,9 @@ class ExercisesFragment : Fragment(),
     OnMinusRepeatClickListener,
     OnPlusRepeatClickListener,
     OnMinusWeightClickListener,
-    OnPlusWeightClickListener {
+    OnPlusWeightClickListener,
+    OnMinusDoneClickListener,
+    OnPlusDoneClickListener {
 
     private val exercisesViewModel by viewModels<ExercisesViewModel>()
     private val mainVm by activityViewModels<MainViewModel>()
@@ -69,6 +73,8 @@ class ExercisesFragment : Fragment(),
                 .observe(viewLifecycleOwner) { exercises ->
                     val adapter = ExercisesAdapter(
                         exercises,
+                        this,
+                        this,
                         this,
                         this,
                         this,
@@ -145,6 +151,20 @@ class ExercisesFragment : Fragment(),
         saveRecylerViewState()
         val updatePlusWeight = exercise.copy(weight_exercise = (exercise.weight_exercise + 0.50).coerceAtMost(999.00))
         mainVm.updateExercise(updatePlusWeight)
+        restoreRecylerViewState()
+    }
+
+    override fun onMinusDoneClick(exercise: Exercise) {
+        saveRecylerViewState()
+        val updateMinusDone = exercise.copy(done_exercise = (exercise.done_exercise - 1).coerceAtLeast(0))
+        mainVm.updateExercise(updateMinusDone)
+        restoreRecylerViewState()
+    }
+
+    override fun onPlusDoneClick(exercise: Exercise) {
+        saveRecylerViewState()
+        val updatePlusDone = exercise.copy(done_exercise = (exercise.done_exercise + 1).coerceAtMost(99))
+        mainVm.updateExercise(updatePlusDone)
         restoreRecylerViewState()
     }
 

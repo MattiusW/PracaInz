@@ -19,6 +19,7 @@
     <string name="series">Serie:</string>
     <string name="amout">Powtórzenia:</string>
     <string name="add_repeat_label">Powtórzenia</string>
+    <string name="done">Ukończone:</string>
 
     <!--   Spinner category (    CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS   ) -->
     <string-array name="category_exercise">

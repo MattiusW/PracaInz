@@ -8,6 +8,7 @@ import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 import pl.mw.gymplanapp.model.Exercise
+import pl.mw.gymplanapp.model.ProgressResult
 
 @Dao
 interface ExcercisesDao {
@@ -28,12 +29,11 @@ interface ExcercisesDao {
     @Query("SELECT * FROM exercises_table ORDER BY exerciseId DESC")
     fun getAllExercises(): Flow<List<Exercise>>
 
-    // Zliczenie progresu cwiczen
-    // TODO naprawic blad, dodac kalse enum z poszczegolnymi kategoriami
-//    @Query("SELECT category_exercise, SUM(weight_exercise) AS progress FROM exercises_table")
-//    fun getProgressOfExercisesGroupByCategory(): Flow<List<Exercise>>
+    // Najwieksza waga cwiczenia
+    @Query("SELECT category_exercise, MAX(weight_exercise) AS progress FROM exercises_table GROUP BY category_exercise")
+    fun getProgressOfExercisesGroupByCategory(): Flow<List<ProgressResult>>
 
-    // TODO sprawdzic czy dziala i czy wszystko sie dobrze ze soba laczy
     @Query("SELECT * FROM exercises_table INNER JOIN training_plans_table ON trainingPlanId == planId WHERE trainingPlanId = :trainingPlanId")
     fun getExercisesByTrainingPlan(trainingPlanId: Long): Flow<List<Exercise>>
+
 }

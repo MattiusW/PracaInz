@@ -89,4 +89,13 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun getSelectedExercise() = selectedExercise
+
+    // Pobranie ilosci ukonczonych cwiczen
+//    fun getNumberOfDoneExercise(): Int{
+//        return selectedExercise!!.done_exercise
+//    }
+
+    // Zwracanie progresu
+    fun getProgressExercises() = excercisesRepo.getProgressOfExercises().asLiveData(viewModelScope.coroutineContext)
+
 }

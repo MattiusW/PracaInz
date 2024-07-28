@@ -38,4 +38,7 @@ class ExcercisesRepository(context: Context) {
         return excercisesDao.getExercisesByTrainingPlan(trainingPlanId)
     }
 
+    // Zliczanie progressu
+    fun getProgressOfExercises() = excercisesDao.getProgressOfExercisesGroupByCategory()
+
 }

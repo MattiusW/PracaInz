@@ -52,9 +52,15 @@ class ProgressFragment : Fragment() {
         mainVm.getProgressExercises().observe(viewLifecycleOwner) { progressList ->
             entries.clear()
             labels.clear()
-            for ((index, progress) in progressList.withIndex()) {
-                entries.add(BarEntry(index.toFloat(), progress.progress.toFloat()))
-                labels.add(progress.category_exercise.uppercase())
+
+            if (progressList.isEmpty()) {
+                entries.add(BarEntry(0f,0f))
+                labels.add("AKTUALNIE BRAK DANYCH")
+            } else {
+                for ((index, progress) in progressList.withIndex()) {
+                    entries.add(BarEntry(index.toFloat(), progress.progress.toFloat()))
+                    labels.add(progress.category_exercise.uppercase())
+                }
             }
             // Aktualizacja danych
             barDataSet = BarDataSet(entries, "Osiągnięcia wagowe")

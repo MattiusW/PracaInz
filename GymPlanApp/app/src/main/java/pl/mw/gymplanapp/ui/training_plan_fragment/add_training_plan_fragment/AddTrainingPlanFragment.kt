@@ -43,7 +43,7 @@ class AddTrainingPlanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         handleOnBackPressed()
-
+        setupCurrentDate()
         binding.calendarImage.setOnClickListener {
             showDatePickerDialog()
         }
@@ -59,6 +59,12 @@ class AddTrainingPlanFragment : Fragment() {
         }
     }
 
+    // Ustawianie dzisiejszej daty
+    private fun setupCurrentDate() {
+        val date = Calendar.getInstance()
+        viewModel.date = date.timeInMillis
+    }
+
     // Podpinamy nasluch
     private fun handleOnBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
@@ -66,10 +72,11 @@ class AddTrainingPlanFragment : Fragment() {
 
     private fun showDatePickerDialog() {
         val newDatePicker = TrainingPlanDatePicker { day, month, year ->
-            binding.dayTv.text = day.toString()
-            binding.monthTv.text = month.toString()
+            val dayPlaceholder = if (day < 10) "0$day" else "$day"
+            binding.dayTv.text = dayPlaceholder
+            val monthPlaceHolder = if (month + 1 < 10) "0${month+1}" else "${month+1}"
+            binding.monthTv.text = monthPlaceHolder
             binding.yearTv.text = year.toString()
-
             val date = Calendar.getInstance()
             date.set(year, month, day)
             viewModel.date = date.timeInMillis

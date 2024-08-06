@@ -163,7 +163,7 @@ class ExercisesFragment : Fragment(),
 
     override fun onPlusDoneClick(exercise: Exercise) {
         saveRecylerViewState()
-        val updatePlusDone = exercise.copy(done_exercise = (exercise.done_exercise + 1).coerceAtMost(99))
+        val updatePlusDone = exercise.copy(done_exercise = (exercise.done_exercise + 1).coerceAtMost(10))
         mainVm.updateExercise(updatePlusDone)
         restoreRecylerViewState()
     }

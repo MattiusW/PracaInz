@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="success">#5cb85c</color>
     <color name="danger">#d9534f</color>
+
+    <!--  BG SPLASH SCREEN KOLOR   -->
+    <color name="bg_orange_0">#FF6E00</color>
+    <color name="bg_orange_1">#FF9913</color>
+    <color name="bg_orange_2">#FFAD00</color>
+
 </resources>

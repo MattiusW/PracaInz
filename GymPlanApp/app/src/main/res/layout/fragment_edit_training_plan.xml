@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,17 +8,25 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/edit_plan"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:gravity="center"
-        android:text="@string/edit_plan" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/savePlanBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,11 +37,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/info_get_plan_name"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="@string/info_get_plan_name" />
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
@@ -48,97 +56,98 @@
                     android:id="@+id/enter_plan_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:text="@string/info_get_date_plan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:text="@string/info_get_date_plan"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="20dp">
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:text="DATA"
-                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="DATA"
                     android:textSize="30sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/calendarImage"
-                    android:src="@mipmap/ic_launcher"
-                    android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/ic_launcher" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/dayTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Dzień"
                     android:layout_weight="1"
-                    android:textSize="20sp"/>
+                    android:hint="Dzień"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/monthTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Miesiąc"
                     android:layout_weight="1"
-                    android:textSize="20sp"/>
+                    android:hint="Miesiąc"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/yearTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Rok"
                     android:layout_weight="1"
-                    android:textSize="20sp"/>
+                    android:hint="Rok"
+                    android:textSize="20sp" />
             </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/savePlanBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/success"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:text="@string/button_save"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="50dp"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/deletePlanBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/danger"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:text="@string/button_delete"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"/>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/savePlanBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/success"
+        android:gravity="center"
+        android:text="@string/button_save"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/deletePlanBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/deletePlanBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/danger"
+        android:gravity="center"
+        android:text="@string/button_delete"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 

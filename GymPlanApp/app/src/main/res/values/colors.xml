@@ -10,9 +10,21 @@
     <color name="success">#5cb85c</color>
     <color name="danger">#d9534f</color>
 
-    <!--  BG SPLASH SCREEN KOLOR   -->
-    <color name="bg_orange_0">#FF6E00</color>
-    <color name="bg_orange_1">#FF9913</color>
-    <color name="bg_orange_2">#FFAD00</color>
+    <!--  BG SPLASH WIDOK KOLOR   -->
+    <color name="bg_splash_orange_0">#FF6E00</color>
+    <color name="bg_splash_orange_1">#FF9913</color>
+    <color name="bg_splash_orange_2">#FFAD00</color>
+
+    <!-- BG MAIN WIDOK CZERWONY MOTYWUJACY DO WALKI KOLOR  -->
+    <color name="bg_main_red_0">#FE5757</color>
+    <color name="bg_main_red_1">#DF1B1B</color>
+    <color name="bg_main_red_2">#b62020</color>
+    <!-- Navigation bar kolor   -->
+    <color name="bg_nav_red">#a31818</color>
+
+    <!-- BG WIDOKU PROGRESSU   -->
+    <color name="bg_progress_blue_0">#A3B5C0</color>
+    <color name="bg_progress_blue_1">#758D93</color>
+    <color name="bg_progress_blue_2">#213A5C</color>
 
 </resources>

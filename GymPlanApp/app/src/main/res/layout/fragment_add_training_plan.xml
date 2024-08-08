@@ -41,14 +41,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:counterEnabled="true"
+                android:hint="Wpisz nazwę planu"
                 app:counterMaxLength="100">
 
-               <com.google.android.material.textfield.TextInputEditText
-                   android:id="@+id/enter_plan_name"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:textSize="20sp"
-                   android:hint="Wpisz nazwę planu"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_plan_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -77,7 +77,7 @@
 
                 <ImageView
                     android:id="@+id/calendarImage"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@drawable/kalendarz"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

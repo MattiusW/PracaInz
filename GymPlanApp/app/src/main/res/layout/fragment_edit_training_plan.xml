@@ -40,6 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:hint="Edytuj nazwę planu"
                 app:counterEnabled="true"
                 app:counterMaxLength="100">
 
@@ -47,8 +48,7 @@
                     android:id="@+id/enter_plan_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="20sp"
-                    android:hint="Edytuj nazwę planu"/>
+                    android:textSize="20sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView

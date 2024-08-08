@@ -55,14 +55,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:counterEnabled="true"
+                android:hint="Edytuj nazwę ćwiczenia"
                 app:counterMaxLength="100">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/enter_exercise_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="20sp"
-                    android:hint="Edytuj nazwę ćwiczenia"/>
+                    android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -106,6 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        android:hint="@string/add_series_label"
                         android:layout_weight="1">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -113,14 +114,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
-                            android:textSize="20sp"
-                            android:hint="@string/add_series_label"/>
+                            android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:hint="@string/add_repeat_label"
                         android:layout_margin="10dp"
                         android:layout_weight="1">
 
@@ -129,8 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
-                            android:textSize="20sp"
-                            android:hint="@string/add_repeat_label"/>
+                            android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
                 <TextView
@@ -147,6 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:hint="@string/add_weight"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp">
 
@@ -155,7 +156,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="@string/add_weight"
                         android:inputType="numberDecimal"
                         android:textSize="20sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -179,17 +179,17 @@
                     android:textColor="#6D4C41"
                     android:textSize="20sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/deleteExerciseBtn"
-                android:background="@color/danger"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textColor="#6D4C41"
-                android:text="@string/button_delete_ex"
-                android:textSize="20sp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/deleteExerciseBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/danger"
+                    android:gravity="center"
+                    android:text="@string/button_delete_ex"
+                    android:textColor="#3E2723"
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

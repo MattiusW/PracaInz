@@ -24,6 +24,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/purple_200"
+        android:contentDescription="@string/add_exercise"
         android:src="@drawable/icon_add"
         android:tint="@color/white"
         app:borderWidth="0dp"

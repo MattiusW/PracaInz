@@ -59,11 +59,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/amout"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="70dp"
             android:layout_weight="1"
-            android:textColor="@color/black">
-        </TextView>
+            android:text="@string/amout"
+            android:textColor="@color/black"></TextView>
 
     </LinearLayout>
 
@@ -73,7 +72,7 @@
         android:layout_margin="2dp"
         android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -82,47 +81,71 @@
                 android:id="@+id/seriesButtonMinus"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_margin="2dp"
-                android:text="m" />
+                android:layout_marginStart="4dp"
+                android:text="m"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/seriesExercise"
                 android:layout_width="40dp"
                 android:layout_height="30dp"
+                android:layout_marginStart="10dp"
                 android:hint="99"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/seriesButtonMinus"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.466" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/seriesButtonPlus"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_margin="2dp"
-                android:text="p" />
+                android:layout_marginStart="10dp"
+                android:text="p"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/seriesExercise"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/amountButtonMinus"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_margin="2dp"
-                android:text="m" />
+                android:layout_marginEnd="4dp"
+                android:text="m"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/amountExercise"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/amountExercise"
-                android:layout_width="40dp"
+                android:layout_width="35dp"
                 android:layout_height="30dp"
+                android:layout_marginEnd="2dp"
                 android:hint="999"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/amountButtonPlus"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.466" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/amountButtonPlus"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_margin="2dp"
-                android:text="p" />
+                android:layout_marginEnd="2dp"
+                android:text="p"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -134,6 +157,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/weight"
                 android:textColor="@color/black"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1">
             </TextView>
 
@@ -141,13 +165,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/done"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"
                 android:layout_weight="1">
             </TextView>
 
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -156,28 +181,46 @@
                 android:id="@+id/weightButtonMinus"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:text="m" />
+                android:layout_marginStart="2dp"
+                android:text="m"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/weightExercise"
-                android:layout_width="wrap_content"
+                android:layout_width="65dp"
                 android:layout_height="30dp"
+                android:layout_marginStart="1dp"
                 android:hint="120.00"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/weightButtonMinus"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.433" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/weightButtonPlus"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:text="p" />
+                android:layout_marginStart="1dp"
+                android:text="p"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/weightExercise"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/doneButtonMinus"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_margin="2dp"
-                android:text="m" />
+                android:text="m"
+                android:layout_marginEnd="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/doneExercise"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/doneExercise"
@@ -185,16 +228,22 @@
                 android:layout_height="30dp"
                 android:hint="99"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/doneButtonPlus"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/doneButtonPlus"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_margin="2dp"
-                android:text="p" />
+                android:layout_marginEnd="2dp"
+                android:text="p"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

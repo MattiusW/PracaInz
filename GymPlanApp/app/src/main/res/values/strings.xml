@@ -20,6 +20,7 @@
     <string name="amout">Powtórzenia:</string>
     <string name="add_repeat_label">Powtórzenia</string>
     <string name="done">Ukończone:</string>
+    <string name="nazwa_planu_treningowego">Nazwa planu treningowego</string>
 
     <!--   Spinner category (    CHEST, SHOULDERS, ARMS, LEGS, BACK, ABS, OTHERS   ) -->
     <string-array name="category_exercise">

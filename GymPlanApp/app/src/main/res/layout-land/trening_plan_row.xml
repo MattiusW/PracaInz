@@ -23,7 +23,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@android:color/white"
             android:textSize="20dp"
             android:hint="Nazwa planu treningowego"/>
 
@@ -39,6 +39,7 @@
                 android:layout_marginStart="4dp"
                 android:hint="Date"
                 android:textSize="20dp"
+                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

@@ -20,9 +20,9 @@
 <!--    <color name="bg_main_red_1">#011910</color>-->
 <!--    <color name="bg_main_red_2">#013220</color>-->
 
-    <color name="bg_main_red_0">#8bb07f</color>
-    <color name="bg_main_red_1">#659658</color>
-    <color name="bg_main_red_2">#3d7d30</color>
+    <color name="bg_main_red_0">#000000</color>
+    <color name="bg_main_red_1">#131313</color>
+    <color name="bg_main_red_2">#1E1E1E</color>
     <!-- Navigation bar kolor   -->
     <color name="bg_nav_red">#3d7d30</color>
 

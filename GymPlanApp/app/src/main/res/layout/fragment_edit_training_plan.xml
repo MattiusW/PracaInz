@@ -15,6 +15,7 @@
         android:text="@string/edit_plan"
         android:textSize="30dp"
         android:textStyle="bold"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,6 +41,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/info_get_plan_name"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -65,6 +67,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/info_get_date_plan"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -80,6 +83,7 @@
                     android:layout_marginTop="10dp"
                     android:text="DATA"
                     android:textSize="30sp"
+                    android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -104,6 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Dzień"
+                    android:textColor="@android:color/white"
                     android:textSize="20sp" />
 
                 <TextView
@@ -112,6 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Miesiąc"
+                    android:textColor="@android:color/white"
                     android:textSize="20sp" />
 
                 <TextView
@@ -120,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Rok"
+                    android:textColor="@android:color/white"
                     android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>

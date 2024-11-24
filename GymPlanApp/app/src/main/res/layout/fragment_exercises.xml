@@ -6,30 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".ui.exercise_fragment.ExercisesFragment">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="@string/add_exercise"
+        android:src="@drawable/icon_add"
+        app:borderWidth="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/exerciseRecylerView"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Ćwiczenia"
         android:textColor="@android:color/white"
+        android:textStyle="bold"
         android:textSize="40dp"
         android:gravity="center"
-        android:layout_margin="5dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addExercise"
-        app:borderWidth="0dp"
-        android:src="@drawable/icon_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/exerciseRecylerView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/exerciseRecylerView"
@@ -42,6 +44,5 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/exercise_row" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

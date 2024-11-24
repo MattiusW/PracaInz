@@ -20,8 +20,6 @@
 <!--    <color name="bg_main_red_1">#011910</color>-->
 <!--    <color name="bg_main_red_2">#013220</color>-->
 
-    <color name="bg_main_red_0">#000000</color>
-    <color name="bg_main_red_1">#131313</color>
     <color name="bg_main_bottom">#1E1E1E</color>
     <!-- Navigation bar kolor   -->
     <color name="bg_nav_red">#3d7d30</color>
@@ -30,5 +28,13 @@
     <color name="bg_progress_blue_0">#856A02</color>
     <color name="bg_progress_blue_1">#9F7F03</color>
     <color name="bg_progress_blue_2">#D4AA04</color>
+
+    <!-- Kolory przycisków zgozne z wytycznymi Material Design często stosowane w aplikacjach -->
+
+    <color name="red_sub_active">#FF5252</color>
+    <color name="red_sub_pressed">#E53935</color>
+    <color name="green_add_active">#4CAF50</color>
+    <color name="green_add_pressed">#388E3C</color>
+
 
 </resources>

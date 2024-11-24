@@ -81,10 +81,14 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/seriesButtonMinus"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="4dp"
-                android:text="m"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/button_minus_bg"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -95,20 +99,25 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
                 android:hint="99"
+                android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/seriesButtonMinus"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.466" />
+                app:layout_constraintVertical_bias="0.48" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/seriesButtonPlus"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="10dp"
-                android:text="p"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:background="@drawable/button_plus_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/seriesExercise"
                 app:layout_constraintTop_toTopOf="parent"
@@ -116,10 +125,15 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/amountButtonMinus"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="4dp"
-                android:text="m"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_minus_bg"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/amountExercise"
                 app:layout_constraintTop_toTopOf="parent"
@@ -129,7 +143,7 @@
                 android:id="@+id/amountExercise"
                 android:layout_width="35dp"
                 android:layout_height="30dp"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="5dp"
                 android:hint="999"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
@@ -141,13 +155,19 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/amountButtonPlus"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="2dp"
-                android:text="p"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:background="@drawable/button_plus_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -183,20 +203,23 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/weightButtonMinus"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="2dp"
-                android:text="m"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/button_minus_bg"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/weightExercise"
                 android:layout_width="65dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="1dp"
+                android:layout_marginStart="5dp"
                 android:hint="120.00"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -208,10 +231,15 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/weightButtonPlus"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="1dp"
-                android:text="p"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_plus_bg"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/weightExercise"
                 app:layout_constraintTop_toTopOf="parent"
@@ -219,10 +247,15 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/doneButtonMinus"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="m"
-                android:layout_marginEnd="2dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button_minus_bg"
+                android:layout_marginTop="5dp"
+                android:text="-"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/doneExercise"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -241,10 +274,14 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/doneButtonPlus"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="2dp"
-                android:text="p"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:background="@drawable/button_plus_bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

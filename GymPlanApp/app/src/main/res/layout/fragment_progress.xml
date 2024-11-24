@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.exercise_fragment.progress_fragment.ProgressFragment"
     android:orientation="vertical"
-    android:background="@drawable/bg_progress">
+    android:background="@color/white">
 
     <TextView
         android:layout_width="match_parent"

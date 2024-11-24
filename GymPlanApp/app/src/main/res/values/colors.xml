@@ -22,7 +22,7 @@
 
     <color name="bg_main_red_0">#000000</color>
     <color name="bg_main_red_1">#131313</color>
-    <color name="bg_main_red_2">#1E1E1E</color>
+    <color name="bg_main_bottom">#1E1E1E</color>
     <!-- Navigation bar kolor   -->
     <color name="bg_nav_red">#3d7d30</color>
 

@@ -21,15 +21,15 @@
         android:id="@+id/addNewPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         android:backgroundTint="@color/purple_200"
         android:contentDescription="@string/add_exercise"
         android:src="@drawable/icon_add"
         android:tint="@color/white"
         app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

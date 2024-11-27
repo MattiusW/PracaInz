@@ -51,7 +51,7 @@
         android:layout_marginLeft="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/series"
             android:textColor="@android:color/white"
@@ -61,8 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="20dp"
             android:text="@string/amout"
             android:textColor="@android:color/white"></TextView>
 
@@ -177,7 +176,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/weight"
                 android:textColor="@android:color/white"
@@ -189,9 +188,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/done"
-                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="20dp"
                 android:textColor="@android:color/white"
-                android:layout_weight="1">
+                >
             </TextView>
 
         </LinearLayout>

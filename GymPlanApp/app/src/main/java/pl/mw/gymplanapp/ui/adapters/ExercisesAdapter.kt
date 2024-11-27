@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
+import pl.mw.gymplanapp.R
 import pl.mw.gymplanapp.buttons.OnMinusDoneClickListener
 import pl.mw.gymplanapp.buttons.OnMinusRepeatClickListener
 import pl.mw.gymplanapp.buttons.OnMinusSeriesClickListener
@@ -14,6 +15,7 @@ import pl.mw.gymplanapp.buttons.OnPlusSeriesClickListener
 import pl.mw.gymplanapp.buttons.OnPlusWeightClickListener
 import pl.mw.gymplanapp.databinding.ExerciseRowBinding
 import pl.mw.gymplanapp.model.Exercise
+import pl.mw.gymplanapp.model.ExerciseCategory
 
 class ExercisesAdapter(private val exercises: List<Exercise>,
                        private val onMinusSeriesClickListener: OnMinusSeriesClickListener,
@@ -67,8 +69,17 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
 
     private fun bindData(holder: ExercisesViewHolder, position: Int) {
 
-        //TODO("STWORZYC IKONKI, KTORE BEDA SIE ZMIENIALY W ZALEZNOSCI OD KATEGORI CWICZEN")
+        val typeIconResource = when(exercises[position].category_exercise) {
+            ExerciseCategory.KLATKA -> R.drawable.klatka
+            ExerciseCategory.RAMIONA -> R.drawable.icon_add
+            ExerciseCategory.RECE -> R.drawable.reka
+            ExerciseCategory.NOGI -> R.drawable.noga
+            ExerciseCategory.PLECY -> R.drawable.icon_add
+            ExerciseCategory.BRZUCH -> R.drawable.brzuch
+            ExerciseCategory.INNE -> R.drawable.icon_add
+        }
 
+        holder.iconExercise.setImageResource(typeIconResource)
         holder.nameExercise.text = exercises[position].name_exercise.toString()
         holder.categoryExercise.text = exercises[position].category_exercise.name
         holder.seriesExercise.text = exercises[position].series_exercise.toString()

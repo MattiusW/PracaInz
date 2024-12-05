@@ -71,12 +71,12 @@ class ExercisesAdapter(private val exercises: List<Exercise>,
 
         val typeIconResource = when(exercises[position].category_exercise) {
             ExerciseCategory.KLATKA -> R.drawable.klatka
-            ExerciseCategory.RAMIONA -> R.drawable.icon_add
+            ExerciseCategory.RAMIONA -> R.drawable.ramie
             ExerciseCategory.RECE -> R.drawable.reka
             ExerciseCategory.NOGI -> R.drawable.noga
-            ExerciseCategory.PLECY -> R.drawable.icon_add
+            ExerciseCategory.PLECY -> R.drawable.plecy
             ExerciseCategory.BRZUCH -> R.drawable.brzuch
-            ExerciseCategory.INNE -> R.drawable.icon_add
+            ExerciseCategory.INNE -> R.drawable.sztanga
         }
 
         holder.iconExercise.setImageResource(typeIconResource)

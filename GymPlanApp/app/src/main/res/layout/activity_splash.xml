@@ -8,4 +8,17 @@
     tools:context=".SplashActivity"
     android:background="@drawable/bg_splash">
 
+
+    <ImageView
+        android:id="@+id/splash_image"
+        android:layout_width="247dp"
+        android:layout_height="233dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/splash_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

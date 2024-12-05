@@ -34,6 +34,14 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.addTrainingPlanFragment)
         }
 
+        // Ukrycie przycisku we fragmencie progress i pojawienie sie po kliknieciu przycisku training na menu nav
+        navController.addOnDestinationChangedListener{_, destination, _ ->
+            when (destination.id) {
+                R.id.progressFragment -> setButtonVisibility(buttonVisible = false, menuVisible = true)
+                R.id.trainingPlansFragment -> setButtonVisibility(buttonVisible = true, menuVisible = true)
+            }
+        }
+
     }
 
     fun setButtonVisibility(buttonVisible: Boolean, menuVisible: Boolean) {

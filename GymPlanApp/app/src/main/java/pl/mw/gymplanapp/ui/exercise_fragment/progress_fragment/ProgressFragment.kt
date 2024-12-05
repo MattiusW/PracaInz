@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -13,6 +14,7 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
+import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.databinding.FragmentProgressBinding
 
@@ -22,6 +24,15 @@ class ProgressFragment : Fragment() {
     private val mainVm by activityViewModels<MainViewModel>()
     private var _binding: FragmentProgressBinding? = null
     private val binding get() = _binding!!
+
+    // Logika odpowiadajaca za ponowne pojawienie sie przycisku
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            (requireActivity() as MainActivity).setButtonVisibility(buttonVisible = true, menuVisible = true)
+            isEnabled = false
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +44,8 @@ class ProgressFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        handleOnBackPressed()
 
         val entries = ArrayList<BarEntry>()
         val labels = arrayListOf("KLATKA", "RAMIONA", "RECE", "NOGI", "PLECY", "BRZUCH", "INNE")
@@ -81,6 +94,10 @@ class ProgressFragment : Fragment() {
 
             barChart.invalidate()
         }
+    }
+
+    private fun handleOnBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
     }
 
     override fun onDestroy() {

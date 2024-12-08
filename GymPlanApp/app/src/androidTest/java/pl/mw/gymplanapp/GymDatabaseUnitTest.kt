@@ -60,7 +60,7 @@ class GymDatabaseUnitTest {
             name_exercise = "Wyciskanie sztangi na ławce płaskiej",
             amount_exercise = 3,
             weight_exercise = 60.0,
-            category_exercise = ExerciseCategory.CHEST,
+            category_exercise = ExerciseCategory.KLATKA,
             trainingPlanId = planIdjeden
         )
         excercisesDao.insertExercises(cwiczenie1doPlanuPierwszego)
@@ -69,7 +69,7 @@ class GymDatabaseUnitTest {
             name_exercise = "Przysiady ze sztangą",
             amount_exercise = 3,
             weight_exercise = 80.0,
-            category_exercise = ExerciseCategory.LEGS,
+            category_exercise = ExerciseCategory.NOGI,
             trainingPlanId = planIdDwa
         )
         excercisesDao.insertExercises(cwiczenie2doPlanuDrugiego)

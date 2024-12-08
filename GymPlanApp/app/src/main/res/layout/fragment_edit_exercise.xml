@@ -48,9 +48,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_margin="10dp"
-                android:background="@color/white"
+                android:background="@color/gray_spinner"
                 android:entries="@array/category_exercise"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textAlignment="center" />
 
             <TextView
@@ -192,7 +192,6 @@
         android:background="@color/success"
         android:gravity="center"
         android:text="@string/button_save"
-        android:textColor="#6D4C41"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/deleteExerciseBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -204,11 +203,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="12dp"
         android:background="@color/danger"
         android:gravity="center"
         android:text="@string/button_delete_ex"
-        android:textColor="#3E2723"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

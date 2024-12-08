@@ -85,8 +85,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/seriesButtonMinus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/button_minus_bg"
                 android:text="-"
@@ -113,8 +113,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/seriesButtonPlus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:text="+"
@@ -129,8 +129,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/amountButtonMinus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/button_minus_bg"
@@ -159,8 +159,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/amountButtonPlus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="5dp"
                 android:text="+"
@@ -205,8 +205,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/weightButtonMinus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/button_minus_bg"
                 android:text="-"
@@ -233,8 +233,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/weightButtonPlus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/button_plus_bg"
@@ -249,8 +249,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/doneButtonMinus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/button_minus_bg"
                 android:layout_marginTop="5dp"
@@ -276,8 +276,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/doneButtonPlus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="5dp"
                 android:text="+"

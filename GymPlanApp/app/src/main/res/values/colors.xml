@@ -36,5 +36,7 @@
     <color name="green_add_active">#4CAF50</color>
     <color name="green_add_pressed">#388E3C</color>
 
+    <!-- Kolor spinnera  -->
+    <color name="gray_spinner">#998D8D</color>
 
 </resources>

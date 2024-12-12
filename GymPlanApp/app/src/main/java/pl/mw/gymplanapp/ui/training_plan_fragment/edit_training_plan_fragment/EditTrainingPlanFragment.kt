@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import pl.mw.gymplanapp.MainActivity
 import pl.mw.gymplanapp.MainViewModel
@@ -56,11 +57,18 @@ class EditTrainingPlanFragment : Fragment() {
             showDatePickerDialog()
         }
         binding.deletePlanBtn.setOnClickListener {
-            mainVm.getSelectedTrainingPlan()?.let { plans ->
-                mainVm.deleteTrainingPlan(listOf(plans))
-                mainVm.unselectTrainingPlan()
-            }
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+            AlertDialog.Builder(requireContext())
+                .setTitle("Usuń plan treningowy")
+                .setMessage("Czy na pewno chcesz usunać cały plan wraz ze wszystkimi ćwiczeniami?")
+                .setPositiveButton("Tak") { _, _ ->
+                    mainVm.getSelectedTrainingPlan()?.let { plans ->
+                        mainVm.deleteTrainingPlan(listOf(plans))
+                        mainVm.unselectTrainingPlan()
+                    }
+                    requireActivity().onBackPressedDispatcher.onBackPressed()
+                }
+                .setNegativeButton("Nie", null)
+                .show()
         }
         binding.savePlanBtn.setOnClickListener {
             updateTrainingPlan()

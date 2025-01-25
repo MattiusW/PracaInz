@@ -5,7 +5,7 @@
         android:title="Treningi"
         android:id="@id/trainingPlansFragment"/>
     <item
-        android:title="Progress"
+        android:title="Postępy"
         android:id="@id/progressFragment"/>
 
 </menu>

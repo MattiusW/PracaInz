@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import pl.mw.gymplanapp.MainViewModel
 import pl.mw.gymplanapp.R
@@ -56,11 +57,18 @@ class EditExerciseFragment : Fragment() {
             updateExercise()
         }
         binding.deleteExerciseBtn.setOnClickListener {
-            mainVm.getSelectedExercise()?.let { exercise ->
-                mainVm.deleteExercise(listOf(exercise))
-                mainVm.unSelectExercise()
-            }
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+            AlertDialog.Builder(requireContext())
+                .setTitle("Usuń ćwieczenie")
+                .setMessage("Czy na pewno chcesz usunąć ćwiczenie?")
+                .setPositiveButton("Tak") {_,_ ->
+                    mainVm.getSelectedExercise()?.let { exercise ->
+                        mainVm.deleteExercise(listOf(exercise))
+                        mainVm.unSelectExercise()
+                    }
+                    requireActivity().onBackPressedDispatcher.onBackPressed()
+                }
+                .setNegativeButton("Nie", null)
+                .show()
         }
     }
 
